@@ -13,9 +13,9 @@
 #define INCLUDE_HMMVP_HD_PRI
 
 #include <assert.h>
-#include "util/include/Exception.hpp"
-#include "util/include/Matrix.hpp"
-#include "util/include/Defs.hpp"
+#include "../util/include/Exception.hpp"
+#include "../util/include/Matrix.hpp"
+#include "../util/include/Defs.hpp"
 
 // Create an H-matrix from B. P'BQ has contiguous blocks.
 
@@ -25,7 +25,7 @@ using namespace util;
 
 typedef vector<UInt> Vecui;
 typedef Matrix<double> Matd;
-  
+
 // Row and column global indices for a matrix block. Indexing is 1-based.
 namespace hd {
 struct Block {
@@ -103,7 +103,7 @@ public:
   // distCentroid.
   enum DistanceMethod { distCentroid, distPointwise, distAxisAligned };
   void Opt_distance_method(DistanceMethod sm) { dist_method = sm; }
-    
+
 protected:
   bool Admissible(const HdCcCD& n1, const HdCcCD& n2) const;
 
@@ -111,7 +111,7 @@ protected:
   double eta;
   SplitMethod split_method;
   DistanceMethod dist_method;
-};  
+};
 
 class Node;
 
