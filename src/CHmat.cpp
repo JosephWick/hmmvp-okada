@@ -9,7 +9,7 @@
  *   http://www.opensource.org/licenses/eclipse-1.0
 */
 
-#include "hmmvp/include/Hmat.hpp"
+#include "../hmmvp/include/Hmat.hpp"
 
 #include <iostream>
 using namespace std;
