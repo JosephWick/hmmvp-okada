@@ -13,9 +13,9 @@
 #define INCLUDE_HMMVP_HD
 
 #include <vector>
-#include "util/include/Defs.hpp"
-#include "util/include/Exception.hpp"
-#include "util/include/Matrix.hpp"
+#include "../../util/include/Defs.hpp"
+#include "../../util/include/Exception.hpp"
+#include "../../util/include/Matrix.hpp"
 
 namespace hmmvp {
 using namespace util;
