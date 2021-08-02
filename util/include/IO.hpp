@@ -16,7 +16,7 @@
 #include <string>
 #include <sstream>
 #include <stdio.h>
-#include "util/include/Exception.hpp"
+#include "Exception.hpp"
 
 namespace util {
 
