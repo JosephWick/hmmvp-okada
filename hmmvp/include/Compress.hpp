@@ -14,9 +14,9 @@
 
 #include <vector>
 #include <string>
-#include "util/include/Exception.hpp"
-#include "hmmvp/include/Hd.hpp"
-#include "hmmvp/include/Hmat.hpp"
+#include "../../util/include/Exception.hpp"
+#include "Hd.hpp"
+#include "Hmat.hpp"
 
 namespace hmmvp {
 using namespace util;
@@ -116,7 +116,7 @@ public:
   void AvoidRedundantGfCalls(bool flag);
   // There's almost never a reason to call this method.
   void UseCompressQr(bool flag);
-  
+
   // Run.
 
   // Save the H-matrix to a file.
@@ -125,7 +125,7 @@ public:
   // Construct the H-matrix in memory. This is for advanced users.
   Hmat* CompressInMemory(UInt ncol, UInt max_nthreads)
     throw (OutOfMemoryException, UserReqException);
-  
+
   // This shouldn't actually be called unless I'm doing a convergence test.
   void SetPrec(UInt prec_code) throw (Exception);
   // This shouldn't be called either except for a tol test. In practice I
