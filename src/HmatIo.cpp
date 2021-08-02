@@ -9,8 +9,8 @@
  *   http://www.opensource.org/licenses/eclipse-1.0
 */
 
-#include "util/include/Util.hpp"
-#include "hmmvp/include/HmatIo.hpp"
+#include "../util/include/Util.hpp"
+#include "../hmmvp/include/HmatIo.hpp"
 
 namespace hmmvp {
   using namespace util;
@@ -93,10 +93,10 @@ namespace hmmvp {
     c0 = (Blint) fc0;
     m = (Blint) fm;
     n = (Blint) fn;
-  
+
     char code;
     read(&code, 1, fid);
-  
+
     if (code == 'U') {
       FileBlint frank;
       read(&frank, 1, fid);
@@ -105,7 +105,7 @@ namespace hmmvp {
     } else {
       rank = std::min(m, n);
       fseek(fid, m*n*sz, SEEK_CUR);
-    }  
+    }
   }
 
 }
