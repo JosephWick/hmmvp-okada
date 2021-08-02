@@ -48,7 +48,7 @@ using namespace util;
 
 /* DEV Implement Green's functions here. To add a new Green's function, follow
    these steps:
-     
+
    1. Inherit from ImplGreensFn or one of its descendants.
    2. Add the new string identifier to NewGreensFn().
 
@@ -101,6 +101,7 @@ public:
 /* DEV For neatness, you might put your code into a file whose name
    corresponds to the string identifier and include it here. */
 #include "GreensFnInverseR.cpp"
+#include "GreensFnOkada.cpp"
 
 ImplGreensFn* NewGreensFn (const string& id, const KeyValueFile* kvf)
   throw (Exception)
@@ -109,6 +110,8 @@ ImplGreensFn* NewGreensFn (const string& id, const KeyValueFile* kvf)
   /* DEV Add your GF's string identifier here. */
   if (id == "inverse-r") {
     gf = new InverseRGreensFn();
+  else if (id == "'"okada") {
+    gf = new GreensFnOkada();
   } else {
     throw Exception("No such Green's function string identifier.");
   }
@@ -338,7 +341,7 @@ int main (int argc, char** argv) {
   }
   DeleteKeyValueFile(kvf);
   if (!gf) return Finalize(-1);
-  
+
   if (am_root) printf("... Doing extra tasks.\n");
   if (am_root) {
     try {
@@ -370,7 +373,7 @@ int main (int argc, char** argv) {
     delete gf;
     return Finalize(0);
   }
-  
+
   // Spatial decomposition.
   hmmvp::Hd* hd = NULL;
   if (am_root) {
