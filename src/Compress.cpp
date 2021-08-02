@@ -12,12 +12,12 @@
 #include <stdio.h>
 #include <math.h>
 #include <sstream>
-#include "util/include/Mpi.hpp"
-#include "util/include/OpenMP.hpp"
-#include "util/include/Util.hpp"
-#include "util/include/CodeAnalysis.hpp"
-#include "hmmvp/include/Hmat.hpp"
-#include "hmmvp/include/HmatIo.hpp"
+#include "../util/include/Mpi.hpp"
+#include "../util/include/OpenMP.hpp"
+#include "../util/include/Util.hpp"
+#include "../util/include/CodeAnalysis.hpp"
+#include "../hmmvp/include/Hmat.hpp"
+#include "../hmmvp/include/HmatIo.hpp"
 #include "Hd_pri.hpp"
 #include "Compress_pri.hpp"
 
@@ -66,7 +66,7 @@ MatBlock& MatBlock::operator= (const hd::Block& b) {
   r0 = b.r0 - 1; m = b.m; c0 = b.c0 - 1; n = b.n;
   return *this;
 }
-  
+
 template<typename T> void TypedLraBlock<T>::WriteToFile (FILE* fid) const {
   const MatBlock& mb = GetBlock();
   Blint n;
@@ -807,7 +807,7 @@ CopyAndDecr (const vector<UInt>& c, vector<Blint>& d) {
   for (UInt i = 0; i < c.size(); i++) d[i] = c[i] - 1;
   return d;
 }
-    
+
 void Compressor::WriteHmatHeader (FILE* fid) {
   FileBlint n;
   n = _ma.pp().size(); write(&n, 1, fid);
@@ -1187,7 +1187,7 @@ void Compressor::CompressToFileSerial () {
   FILE* fid = fopen(_filename.c_str(), "ab");
   if (!fid) throw FileException(_filename + string(" can't be updated."));
   ProgressBar pb("Compress", _blocks.size(), GetOutputLevel());
-  if (_have_old_hmat) {    
+  if (_have_old_hmat) {
     for (UInt i = 0, nb = _blocks.size(); i < nb; i++) {
       LraBlock* ob = _ohm->ReadNextBlock();
       CompressBlockToFile(fid, ob->GetBlock(), ob);
@@ -1276,7 +1276,7 @@ void Compressor::CompressToFileParallel () {
   if (cpm) delete cpm;
   if (cpw) delete cpw;
   if (!all_ok) throw FileException(msg);
-  ConcatFiles();    
+  ConcatFiles();
 }
 
 void Compressor::CompressToFile (const string& hmat_fn)
