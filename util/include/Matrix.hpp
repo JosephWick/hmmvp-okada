@@ -16,8 +16,8 @@
 #include <string.h>
 #include <assert.h>
 #include <iostream>
-#include "util/include/Exception.hpp"
-#include "util/include/IO.hpp"
+#include "Exception.hpp"
+#include "include/IO.hpp"
 
 namespace util {
 template<typename T, size_t idx_start=1>
@@ -111,7 +111,7 @@ public:
     if (_m == 0 || _n == 0) _m = _n = 0;
     return *this;
   }
-  
+
   // Same as Resize, but copies old data over. The extra is set to zero.
   Matrix<T>& Reshape (size_t m, size_t n) throw (OutOfMemoryException) {
     if (_m*_n != m*n) {
@@ -136,7 +136,7 @@ public:
     if (_m == 0 || _n == 0) _m = _n = 0;
     return *this;
   }
-  
+
   Matrix<T>& SetPtr (T* data) { return SetPtr(_m, _n, data); }
   Matrix<T>& SetPtr (size_t m, T* data) { return SetPtr(m, 1, data); }
   Matrix<T>& SetPtr (size_t m, size_t n, T* data) {
