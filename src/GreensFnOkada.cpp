@@ -104,6 +104,7 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
 
 void GreensFnOkada::Init(const KeyValueFile* kvf) throw (Exception) {
   const Matd* m;
+  double d;
   double tmp;
 
   if (!kvf->GetMatd("X", m)) throw Exception("Missing X.");
