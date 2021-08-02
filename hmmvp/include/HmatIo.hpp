@@ -12,8 +12,8 @@
 #ifndef INCLUDE_HMMVP_HMATIO
 #define INCLUDE_HMMVP_HMATIO
 
-#include "util/include/Defs.hpp"
-#include "hmmvp/include/Hmat.hpp"
+#include "../../util/include/Defs.hpp"
+#include "Hmat.hpp"
 
 // Interface to read an H-matrix file. One good use for these routines is to
 // implement a matrix-vector product specialized to your computer setup.
