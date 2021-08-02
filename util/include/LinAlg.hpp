@@ -12,9 +12,9 @@
 #ifndef INCLUDE_UTIL_LINALG
 #define INCLUDE_UTIL_LINALG
 
-#include "util/include/Defs.hpp"
-#include "util/include/Matrix.hpp"
-#include "util/include/WorkArray.hpp"
+#include "Defs.hpp"
+#include "Matrix.hpp"
+#include "WorkArray.hpp"
 
 namespace util {
 #ifdef FORTRAN_INT_4
@@ -27,7 +27,7 @@ template<typename T> void gemm(
   char transa, char transb, blas_int m, blas_int n, blas_int k,
   T alpha, const T* A, blas_int lda, const T* B, blas_int ldb, T beta,
   T* C, blas_int ldc);
- 
+
 template<typename T> void gemv(
   char trans, blas_int m, blas_int n, T alpha, const T* a, blas_int lda,
   const T* x, blas_int incx, T beta, T* y, blas_int incy);
