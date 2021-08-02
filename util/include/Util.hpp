@@ -13,8 +13,8 @@
 #define INCLUDE_UTIL_UTIL
 
 #include <vector>
-#include "util/include/Exception.hpp"
-#include "util/include/Matrix.hpp"
+#include "Exception.hpp"
+#include "Matrix.hpp"
 
 namespace util {
 
