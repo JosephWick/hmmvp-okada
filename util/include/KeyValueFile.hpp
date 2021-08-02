@@ -12,8 +12,8 @@
 #ifndef INCLUDE_UTIL_KEYVALUEFILE
 #define INCLUDE_UTIL_KEYVALUEFILE
 
-#include "util/include/Exception.hpp"
-#include "util/include/Matrix.hpp"
+#include "Exception.hpp"
+#include "Matrix.hpp"
 
 // A simple means to create files containing key-value pairs for input and
 // output encapsulation.
@@ -45,7 +45,7 @@ public:
   bool GetMatd(const string& key, const Matd*& m) const;
   // Convenience routine to get a 1x1 matrix. Fails if the matrix isn't 1x1.
   bool GetDouble(const string& key, double& d) const;
-    
+
   // Write the key-value data to a file having a name ...
   bool Write(const string& filename) const;
   // ... or to a file output stream.
