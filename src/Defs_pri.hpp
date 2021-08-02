@@ -13,7 +13,7 @@
 #define INCLUDE_UTIL_DEFS_PRI
 
 #include <vector>
-#include "util/include/Matrix.hpp"
+#include "../util/include/Matrix.hpp"
 
 namespace util {
 
