@@ -9,11 +9,11 @@
  *   http://www.opensource.org/licenses/eclipse-1.0
 */
 
-#include "util/include/CodeAnalysis.hpp"
+#include "../util/include/CodeAnalysis.hpp"
 
 namespace util {
   namespace Ca {
-    
+
     util::Timer* GetTimer() {
       static Timer t;
       return &t;
