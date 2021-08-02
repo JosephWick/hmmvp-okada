@@ -14,9 +14,9 @@
 
 #include <vector>
 #include <string>
-#include "util/include/Exception.hpp"
-#include "util/include/Mpi.hpp"
-#include "hmmvp/include/Hmat.hpp"
+#include "../util/include/Exception.hpp"
+#include "../util/include/Mpi.hpp"
+#include "../hmmvp/include/Hmat.hpp"
 #include "Hd_pri.hpp"
 
 namespace hmmvp {
