@@ -14,7 +14,7 @@
 #endif
 
 #include <stdio.h>
-#include "util/include/Mpi.hpp"
+#include "../util/include/Mpi.hpp"
 
 namespace util {
 namespace mpi {
@@ -131,7 +131,7 @@ int Test (MPI_Request* req, int* flag, MPI_Status* stat) {
 #else
   *flag = 1;
   return 0;
-#endif      
+#endif
 }
 
 int Request_free (MPI_Request* req) {
@@ -139,7 +139,7 @@ int Request_free (MPI_Request* req) {
   return MPI_Request_free(req);
 #else
   return 0;
-#endif      
+#endif
 }
 
 int Parfor (ParforManager* pm, ParforWorker* pw, int njobs) {
