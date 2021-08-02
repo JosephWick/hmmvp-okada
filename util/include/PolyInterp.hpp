@@ -15,7 +15,7 @@
 #define INCLUDE_POLYINTERP
 
 #include <vector>
-#include "util/include/Matrix.hpp"
+#include "Matrix.hpp"
 
 namespace util {
 namespace Interp {
