@@ -13,10 +13,10 @@
 
 #include <stdio.h>
 #include <algorithm>
-#include "util/include/CodeAnalysis.hpp"
-#include "util/include/Mpi.hpp"
-#include "hmmvp/include/Hmat.hpp"
-#include "hmmvp/include/HmatIo.hpp"
+#include "../../util/include/CodeAnalysis.hpp"
+#include "../../util/include/Mpi.hpp"
+#include "Hmat.hpp"
+#include "HmatIo.hpp"
 
 namespace hmmvp {
 
@@ -43,7 +43,7 @@ bool CmpBlockDataCR (const BlockData& bd1, const BlockData& bd2) {
 bool CmpBlockDataNnz (const BlockData& bd1, const BlockData& bd2) {
   return bd1.nnz > bd2.nnz;
 }
-      
+
 void GetBlocks (const string& filename, HmatData* h, vector<BlockData>* bds) {
   double tol;
   h->nnz = 0;
@@ -66,7 +66,7 @@ void GetBlocks (const string& filename, HmatData* h, vector<BlockData>* bds) {
     else bd.nnz = (bm + bn)*brank;
     h->nnz += bd.nnz;
   }
-  fclose(fid);        
+  fclose(fid);
 }
 
 Blint SetupMpi (UInt nproc, const string& filename,
@@ -155,7 +155,7 @@ MpiHmat<T>::MpiHmat (const string& filename, UInt ncol, UInt nthreads)
     my_block_idxs.resize(nb);
     mpi::Recv(&my_block_idxs[0], nb, 0, tag0);
   }
-  
+
   // Now read in just my blocks.
   try {
     hm = hmmvp::NewHmat(filename, ncol, nthreads, &my_block_idxs);
