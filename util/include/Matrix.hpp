@@ -17,7 +17,7 @@
 #include <assert.h>
 #include <iostream>
 #include "Exception.hpp"
-#include "include/IO.hpp"
+#include "IO.hpp"
 
 namespace util {
 template<typename T, size_t idx_start=1>
