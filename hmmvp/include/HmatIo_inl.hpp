@@ -12,11 +12,11 @@
 #ifndef INCLUDE_HMMVP_HMATIO_INL
 #define INCLUDE_HMMVP_HMATIO_INL
 
-#include "util/include/Util.hpp"
+#include "../../util/include/Util.hpp"
 
 namespace hmmvp {
   using namespace util;
-  
+
   template<typename Real>
   void ReadHmatBlockInfo (FILE* fid, Blint& r0, Blint& c0, Blint& m, Blint& n,
                           Blint& rank)
