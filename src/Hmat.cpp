@@ -25,11 +25,11 @@
 #include <string.h>
 #include <algorithm>
 #include <functional>
-#include "util/include/Util.hpp"
-#include "util/include/OpenMP.hpp"
-#include "util/include/LinAlg.hpp"
-#include "hmmvp/include/HmatIo.hpp"
-#include "hmmvp/include/Hmat.hpp"
+#include "../util/include/Util.hpp"
+#include "../util/include/OpenMP.hpp"
+#include "../util/include/LinAlg.hpp"
+#include "../hmmvp/include/HmatIo.hpp"
+#include "../hmmvp/include/Hmat.hpp"
 using namespace util;
 
 // For debugging purposes: This makes arithmetic proceed in the same order for
@@ -302,7 +302,7 @@ struct Block {
   UInt Nnz() const;
   UInt Nnz(Blint nrs, Blint ncs) const;
 };
-  
+
 template<typename Real>
 Block<Real>::Block () : U(0), Vt(0), B(0), am_responsible_for_mem(true) {}
 
@@ -596,7 +596,7 @@ Mvp (const Real* x, Real* y, Real* work, const Blint* rs, Blint nrs,
       Real xc = xp[c];
       for (UInt i = 0; i < m; i++)
         work[i] += Vt[i]*xc;
-    }    
+    }
     // y(r0+rs) += U(rs,:)*work(1:rank)
     const Real* U = b.U;
     for (UInt j = 0; j < m; j++) {
@@ -1107,7 +1107,7 @@ ApplyQ (const T* x, T* xqi, UInt ncol) const {
     }
   }
 }
-  
+
 // y(p,:) = yp
 template<typename Real> template<typename T> inline void TypedHmat<Real>::
 ApplyPt (const T* yp, T* y, UInt ncol) const {
@@ -1265,7 +1265,7 @@ Mvp (const T* x, T* y, UInt ncol) throw (Exception) {
 #ifdef TV
   gettimeofday(&t4, 0);
 #endif
-  
+
   PostMult(nthreads, ncol, y);
 
 #ifdef TV
@@ -1585,7 +1585,7 @@ RMvp (const T* x, T* y, UInt ncol, const vector<Blint>& vrs)
                    h.rs + rlo, nbrs);
           }}}
   }
-  
+
   PostMult(nthreads, ncol, y, vrs);
 }
 
@@ -1727,7 +1727,7 @@ CMvp (const T* x, T* y, UInt ncol, const vector<Blint>& vcs)
                    h.cs + clo, nbcs);
           }}}
   }
-  
+
   PostMult(nthreads, ncol, y);
 }
 
@@ -1790,7 +1790,7 @@ template<typename Real> inline void TypedHmat<Real>::
 GetUsedBlocks (UInt nrs, UInt ncs) {
   if (!state_saved) {
     if (!blks) blks = new Blint[nb];
-    
+
     if (do_e2b_map) {
       e2bm.Init(*this);
 #ifdef TV
@@ -1851,7 +1851,7 @@ UInt E2BMap::GetUsedBlocks (UInt cdim, const Blint* cs, UInt ncs,
   }
 
   return kblks;
-}                                                         
+}
 
 template<typename Real> inline UInt TypedHmat<Real>::
 GetUsedBlocksE2B (UInt nrs, UInt ncs) {
@@ -1976,7 +1976,7 @@ GetNnz (const vector<Blint>& vrs, const vector<Blint>& vcs) {
   }
 
   UInt nnz = 0;
-  UInt nrs = vrs.size(), ncs = vcs.size();  
+  UInt nrs = vrs.size(), ncs = vcs.size();
   if (save_state) {
     GetUsedBlocks(nrs, ncs);
     for (UInt i = 0; i < kblks; i++) {
