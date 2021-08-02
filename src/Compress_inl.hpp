@@ -14,7 +14,7 @@
 #include <list>
 #include <limits>
 #include <algorithm>
-#include "util/include/LinAlg.hpp"
+#include "../util/include/LinAlg.hpp"
 
 namespace hmmvp {
 using namespace util;
@@ -136,7 +136,7 @@ static inline Matrix<T>& ListMatPushBackZeroVec (list< Matrix<T> >& lm, int m) {
 }
 
 template<typename T>
-static inline void ListMatPushBackVec 
+static inline void ListMatPushBackVec
 (list< Matrix<T> >& lm, double* v, const int m) {
   lm.push_back(Matrix<T>());
   Matrix<T>& vm = lm.back();
