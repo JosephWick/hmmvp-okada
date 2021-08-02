@@ -11,8 +11,8 @@
 
 #include <stdio.h>
 #include <string>
-#include "hmmvp/include/Hmat.hpp"
-#include "hmmvp/include/SFHmat.h"
+#include "../hmmvp/include/Hmat.hpp"
+#include "../hmmvp/include/SFHmat.h"
 
 // Since C and Fortran can't handle C++ objects, we need to hide a global one in
 // this file.
