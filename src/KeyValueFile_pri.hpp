@@ -14,9 +14,9 @@
 
 #include <map>
 #include <string>
-#include "util/include/Defs.hpp"
-#include "util/include/Exception.hpp"
-#include "util/include/Matrix.hpp"
+#include "../util/include/Defs.hpp"
+#include "../util/include/Exception.hpp"
+#include "../util/include/Matrix.hpp"
 
 namespace util {
   using namespace std;
@@ -38,7 +38,7 @@ namespace util {
     bool GetString(const string& key, const string*& s) const;
     bool GetMatd(const string& key, const Matd*& m) const;
     bool GetDouble(const string& key, double& d) const;
-    
+
     bool Write(const string& filename) const;
     bool Write(ofstream& os) const;
 
