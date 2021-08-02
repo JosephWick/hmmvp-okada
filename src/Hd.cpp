@@ -14,8 +14,8 @@
 #include <math.h>
 #include <algorithm>
 #include <iostream>
-#include "util/include/Util.hpp"
-#include "util/include/LinAlg.hpp"
+#include "../util/include/Util.hpp"
+#include "../util/include/LinAlg.hpp"
 #include "Hd_pri.hpp"
 
 namespace hmmvp {
@@ -140,7 +140,7 @@ class Node {
 public:
   Node () : cd(0) {}
   ~Node();
-  
+
   // Node IDs are set so that for nodes n1 and n2 at level L1, if n1.Id() <
   // n2.Id(), then for every descendant d1 of n1 and d2 of n2, d1.Id() <
   // d2.Id().
@@ -185,7 +185,7 @@ protected:
 private:
   int SetId(Node* node, int id);
   void Leaves(vector<const Node*>& lvs, Node* node) const;
-  
+
 protected:
   ClusterDataFactory* cdf;
   // Split on major axis or aligned with axes
@@ -302,7 +302,7 @@ void ClusterTree::Compute (Node* node) {
       else is2.push_back(is[i]);
     }
   }
-    
+
   // Calculate cluster data
   for (int i = 0; i < 2; i++) {
     ClusterData* cd = cdf->CreateClusterData();
@@ -456,7 +456,7 @@ Distance (const Hd* hd, const HdCcCDPointwise& cdp) const {
       double d2 = 0.0;
       for (int k = 1; k <= nd; k++) {
         double a = A(k,idxs[i]) - A(k,cdp.idxs[j]);
-        d2 += a*a; 
+        d2 += a*a;
       }
 #endif
       if (d2 < dist2 || dist2 < 0.0) dist2 = d2;
@@ -537,7 +537,7 @@ bool HdCc::Admissible (const HdCcCD& n1cd, const HdCcCD& n2cd) const {
     // n1cd and n2cd are the same object.)
     if (eta >= 1e20 && dynamic_cast<const HdCcSym*>(this))
       return Distance2(c1.GetPtr(), c2.GetPtr(), nd) > 0;
-    
+
     return 2.0*min(r1, r2) < eta*dist;
   } break;
 
