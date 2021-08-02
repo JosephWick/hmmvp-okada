@@ -12,7 +12,7 @@
 // Andrew M. Bradley ambrad@cs.stanford.edu
 
 #include <math.h>
-#include "util/include/PolyInterp.hpp"
+#include "../util/include/PolyInterp.hpp"
 
 namespace util {
 namespace Interp {
