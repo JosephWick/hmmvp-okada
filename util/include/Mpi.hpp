@@ -20,7 +20,7 @@
 #ifdef UTIL_MPI
 #  include <mpi.h>
 #endif
-#include "util/include/OpenMP.hpp"
+#include "OpenMP.hpp"
 
 //todo Since I'm using Mpi.?pp across multiple projects, I might take away this
 // outer namespace. I could still protect the name "mpi" by including a wrapper
@@ -65,7 +65,7 @@ namespace util {
 
     // True only if all procs say so.
     bool AllOk(bool p = true);
-    
+
     template<typename T>
     int Reduce(const T* sendbuf, T* rcvbuf, int count, MPI_Op op, int root = 0);
     template<typename T>
@@ -196,7 +196,7 @@ namespace util {
       // Write data to the buffer. Advance buffer pointer by n*sizeof(T).
       template<typename T> void Write(const T* data, size_t n);
       template<typename T> void WriteScalar(T data);
-      
+
       // Get the current size of the buffer (the part containing data).
       size_t Size() const;
 
