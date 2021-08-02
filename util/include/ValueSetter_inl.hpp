@@ -9,8 +9,8 @@
  *   http://www.opensource.org/licenses/eclipse-1.0
 */
 
-#include "util/include/KeyValueFile.hpp"
-#include "util/include/Mpi.hpp"
+#include "KeyValueFile.hpp"
+#include "Mpi.hpp"
 
 namespace util {
 
