@@ -12,7 +12,7 @@
 #include <assert.h>
 #include <fstream>
 #include <vector>
-#include "util/include/Defs.hpp"
+#include "../util/include/Defs.hpp"
 #include "KeyValueFile_pri.hpp"
 using namespace std;
 
@@ -176,7 +176,7 @@ bool KeyValueFile::Write (const string& filename) const {
   os.close();
   return ret;
 }
-  
+
 bool KeyValueFile::Write (ofstream& os) const {
   for (map<string, string*>::const_iterator it = _s_string.begin(),
          end = _s_string.end(); it != end; ++it) {
@@ -185,7 +185,7 @@ bool KeyValueFile::Write (ofstream& os) const {
         !WriteString(os, *it->second))
       return false;
   }
-    
+
   vector<kvf_int> sz(2);
   for (map<string, Matd*>::const_iterator it = _s_Matd.begin(),
          end = _s_Matd.end(); it != end; ++it) {
@@ -200,7 +200,7 @@ bool KeyValueFile::Write (ofstream& os) const {
 
   return true;
 }
-  
+
 bool KeyValueFile::Read (const string& filename) {
   ifstream is(filename.c_str(), ofstream::binary);
   if (!is.is_open()) return false;
@@ -212,13 +212,13 @@ bool KeyValueFile::Read (const string& filename) {
 static inline bool IsCode (const char c1[2], const char c2[2]) {
   return c1[0] == c2[0] && c1[1] == c2[1];
 }
-  
+
 bool KeyValueFile::Read (ifstream& is) {
   vector<char> work;
   while (true) {
     string key;
     if (!ReadStringAndTestEof(is, key, work)) return is.eof();
-      
+
     char code[2];
     if (!ReadCode(is, code)) return false;
 
