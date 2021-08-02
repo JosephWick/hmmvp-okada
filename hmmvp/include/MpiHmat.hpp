@@ -23,7 +23,7 @@
          exit(-1);
        }
        hm->Mvp(x, y, nrhs);
-       
+
        delete hm;
        MPI_Finalize();
 
@@ -34,8 +34,8 @@
 #ifndef INCLUDE_HMMVP_MPI_HMAT
 #define INCLUDE_HMMVP_MPI_HMAT
 
-#include "util/include/Defs.hpp"
-#include "util/include/Exception.hpp"
+#include "../../util/include/Defs.hpp"
+#include "../../util/include/Exception.hpp"
 
 namespace hmmvp {
   class Hmat;
@@ -46,7 +46,7 @@ namespace hmmvp {
   using namespace util;
 
   typedef long long Blint;
-  
+
   template<typename real>
   class MpiHmat {
   public:
