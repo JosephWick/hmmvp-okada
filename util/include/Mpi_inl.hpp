@@ -15,7 +15,7 @@
 
 #include <string.h>
 #include <iostream>
-#include "util/include/CodeAnalysis.hpp"
+#include "CodeAnalysis.hpp"
 
 namespace util {
 namespace mpi {
@@ -89,7 +89,7 @@ int Gather (const T* sendbuf, int sendcnt, T* rcvbuf, int rcvcnt, int root) {
 #else
   if (rcvbuf) memcpy(rcvbuf, sendbuf, sendcnt*sizeof(T));
   return 0;
-#endif      
+#endif
 }
 
 template<typename T>
