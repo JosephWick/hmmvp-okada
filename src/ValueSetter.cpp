@@ -9,7 +9,7 @@
  *   http://www.opensource.org/licenses/eclipse-1.0
 */
 
-#include "util/include/ValueSetter.hpp"
+#include "../util/include/ValueSetter.hpp"
 
 namespace util {
 ValueSetter::ValueSetter (const mpi::ArraySegmenter* as,
