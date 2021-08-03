@@ -24,3 +24,4 @@ and
 ```
 gfortran src/hmmvpbuild.cpp external/dc3omp.o src/Hd.o src/Compress.o src/Hmat.o src/HmatIo.o src/KeyValueFile.o src/CodeAnalysis.o src/Mpi.o src/CHmat.o src/SFHmat.o -lstdc++ -fopenmp -llapack -lblas -o bin/hmmvpbuild_omp
 ```
+If you want to get rid of those pesky .o files, `make clean` should do the trick
