@@ -1000,12 +1000,14 @@ double Compressor::EstimateBfro ()
   if (mpi::GetNproc() == 1) { // serial or OpenMP
     ProgressBar pb("Estimate ||B||_F", _blocks.size(), GetOutputLevel());
     if (_omp_nthreads == 1) { // serial
-      printf("\n_0\n");
+      printf("\nbegFor, nb=%d\n", _blocks.size());
       for (UInt i = 0, nb = _blocks.size(); i < nb; i++) {
+        printf("%d ", i);
         if (BlockIsOnDiag(_blocks[i]))
+          printf("-d ");
           nf2 += FullBlockNormFro2(_ma, _blocks[i]);
         pb.Incr();
-      printf("\n_1\n");
+      printf("\ndoneFor\n");
       }
     } else { // OpenMP
       omp_set_num_threads(_omp_nthreads);
