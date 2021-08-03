@@ -974,6 +974,8 @@ static inline bool BlockIsOnDiag (const MatBlock& b) {
   // on-diagonal blocks, but as long as there aren't too many, this only
   // improves the accuracy of the estimate.
   printf("BIOD\n");
+  printf(b.m);
+  printf(b.n);
   return (b.m <= Hd::cluster_tree_min_points &&
           b.n <= Hd::cluster_tree_min_points);
 #endif
