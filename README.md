@@ -4,6 +4,8 @@ Construct an H-matrix and compute matrix-vector products of the form B*x, B(rs,:
 
 ## Installation
 
+First you'll need to run `mkdir bin` and `mkdir lib`, then we can move onto compiling. 
+
 This isn't a pretty way to do this but it's what I have at the moment
 
 Just copy and paste these two blocks into a shell
