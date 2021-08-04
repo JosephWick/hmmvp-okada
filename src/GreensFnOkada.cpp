@@ -64,13 +64,13 @@ private:
 inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   //find individual values to the hmatrix here
   // i is the reeiver, j is the source
-  printf("%d,%d\n", i, j);
+  //printf("%d,%d\n", i, j);
   // first lets find dimensions of mesh
   int meshL = _L/_dz;
   int meshW = _W/_dz;
 
-  double zL = -0.5*_L;
-  double zW = -0.5*_W;;
+  double zL = 0;
+  double zW = 0;
 
   // getting parameters
   // for observer position
@@ -87,8 +87,8 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   char * ph = const_cast<char*>(&_h);
   double * pAlpha = const_cast<double*>(&_alpha);
   double * pDip = const_cast<double*>(&_dip);
-  double * pL = const_cast<double*>(&tmp1);
-  double * pW = const_cast<double*>(&tmp2);
+  double * pL = const_cast<double*>(&_L);
+  double * pW = const_cast<double*>(&_W);
   double * pD1 = const_cast<double*>(&_d1);
   double * pD2 = const_cast<double*>(&_d2);
   double * pD3 = const_cast<double*>(&_d3);
