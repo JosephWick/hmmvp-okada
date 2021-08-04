@@ -6,6 +6,7 @@
  *
 */
 
+/*
 #include <iostream>
 
 using namespace std;
@@ -17,6 +18,7 @@ void * dc3d_(char *SPACE, double *ALPHA, double *X, double *Y, double *Z,
               double *uxy, double *uyy, double *uzy, double *uxz, double *uyz,
               double *uzz);
 }
+*/
 
 class GreensFnOkada : public ImplGreensFn {
 public:
@@ -103,7 +105,7 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   double * uyz;
   double * uzz;
 
-  dc3d_(ph, pAlpha, &obsx, &obsy, &obsz, &srcdepth, pDip, &zL, pL, &zW, pW, pD1, pD2, pD3, ux, uy, uz, uxx, uyx, uzx, uxy, uyy, uzy, uxz, uyz, uzz);
+  //dc3d_(ph, pAlpha, &obsx, &obsy, &obsz, &srcdepth, pDip, &zL, pL, &zW, pW, pD1, pD2, pD3, ux, uy, uz, uxx, uyx, uzx, uxy, uyy, uzy, uxz, uyz, uzz);
   return i+j;
 }
 
