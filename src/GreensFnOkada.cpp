@@ -69,8 +69,8 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   int meshL = _L/_dz;
   int meshW = _W/_dz;
 
-  double zL = 0.0;
-  double zW = 0.0;
+  double zL = -0.5*_L;
+  double zW = -0.5*_W;;
 
   // getting parameters
   // for observer position
@@ -82,11 +82,13 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   double srcdepth = (j % meshW)*_dz + _depth ;
 
   // pointer business
+  double tmp1 = 0.5*_L;
+  double tmp2 = 0.5*_W;
   char * ph = const_cast<char*>(&_h);
   double * pAlpha = const_cast<double*>(&_alpha);
   double * pDip = const_cast<double*>(&_dip);
-  double * pL = const_cast<double*>(&_L);
-  double * pW = const_cast<double*>(&_W);
+  double * pL = const_cast<double*>(&tmp1);
+  double * pW = const_cast<double*>(&tmp2);
   double * pD1 = const_cast<double*>(&_d1);
   double * pD2 = const_cast<double*>(&_d2);
   double * pD3 = const_cast<double*>(&_d3);
