@@ -127,7 +127,7 @@ void GreensFnOkada::Init(const KeyValueFile* kvf) throw (Exception) {
   _h = 'f';
   //kvf->GetDouble("halfspace", tmp);
   //if (tmp == 1.0) _h = 'h';
-  //printf("h: %s\n", _h);
+  printf("h: %c\n", _h);
 
   kvf->GetDouble("mu", _mu);
   if (_mu < 1) throw Exception("mu must be greater than 0.");
