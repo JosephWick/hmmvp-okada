@@ -11,12 +11,12 @@
 
 using namespace std;
 extern "C"{
-void dc3d_(char *SPACE, double *ALPHA, double *X, double *Y, double *Z,
-              double *DEPTH, double *DIP, double *AL1, double *AL2, double *AW1,
-              double *AW2, double *DISL1, double *DISL2, double *DISL3, double *UX,
-              double *UY, double *UZ, double *UXX, double *UYX, double* UZX,
-              double *UXY, double *UYY, double *UZY, double *UXZ, double *UYZ,
-              double *UZZ);
+void dc3d_(char SPACE, double ALPHA, double X, double Y, double Z,
+              double DEPTH, double DIP, double AL1, double AL2, double AW1,
+              double AW2, double DISL1, double DISL2, double DISL3, double UX,
+              double UY, double UZ, double UXX, double UYX, double UZX,
+              double UXY, double UYY, double UZY, double UXZ, double UYZ,
+              double UZZ);
 }
 
 
@@ -91,25 +91,21 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   double * pD2 = const_cast<double*>(&_d2);
   double * pD3 = const_cast<double*>(&_d3);
 
-  printf("ph: %c\n", *ph);
-
   // outputs
-  double * ux;
-  double * uy;
-  double * uz;
-  double * uxx;
-  double * uyx;
-  double * uzx;
-  double * uxy;
-  double * uyy;
-  double * uzy;
-  double * uxz;
-  double * uyz;
-  double * uzz;
+  double ux;
+  double uy;
+  double uz;
+  double uxx;
+  double uyx;
+  double uzx;
+  double uxy;
+  double uyy;
+  double uzy;
+  double uxz;
+  double uyz;
+  double uzz;
 
-  *ux = 0.0;
-
-  dc3d_(ph, pAlpha, &obsx, &obsy, &obsz, &srcdepth, pDip, &zL, pL, &zW, pW, pD1, pD2, pD3, ux, uy, uz, uxx, uyx, uzx, uxy, uyy, uzy, uxz, uyz, uzz);
+  dc3d_(&_h, &_alpha, &obsx, &obsy, &obsz, &srcdepth, &_dip, &zL, &_L, &zW, &_W, &_d1, &_d2, &_d3, &ux, &uy, &uz, &uxx, &uyx, &uzx, &uxy, &uyy, &uzy, &uxz, &uyz, &uzz);
   return i+j;
 }
 
