@@ -91,6 +91,8 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   double * pD2 = const_cast<double*>(&_d2);
   double * pD3 = const_cast<double*>(&_d3);
 
+  printf("ph: %c\n", *ph);
+
   // outputs
   double * ux;
   double * uy;
