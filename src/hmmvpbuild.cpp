@@ -112,6 +112,8 @@ ImplGreensFn* NewGreensFn (const string& id, const KeyValueFile* kvf)
     gf = new InverseRGreensFn();
   } else if (id == "okada") {
     gf = new GreensFnOkada();
+  } else if (id == "test") {
+    gf = new GreensFnTest();
   } else {
     throw Exception("No such Green's function string identifier.");
   }
