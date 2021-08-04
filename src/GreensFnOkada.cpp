@@ -105,7 +105,7 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   double uyz;
   double uzz;
 
-  dc3d_(&_h, &_alpha, &obsx, &obsy, &obsz, &srcdepth, &_dip, &zL, &_L, &zW, &_W, &_d1, &_d2, &_d3, &ux, &uy, &uz, &uxx, &uyx, &uzx, &uxy, &uyy, &uzy, &uxz, &uyz, &uzz);
+  dc3d_(ph, pAlpha, &obsx, &obsy, &obsz, &srcdepth, pDip, &zL, pL, &zW, pW, pD1, pD2, pD3, &ux, &uy, &uz, &uxx, &uyx, &uzx, &uxy, &uyy, &uzy, &uxz, &uyz, &uzz);
   return i+j;
 }
 
