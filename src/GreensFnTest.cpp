@@ -11,6 +11,31 @@ private:
   UInt _order;
   double _delta;
 
+  // halfspace
+  char _h;
+
+  // elastic properties
+  double _mu;
+  double _nu;
+  double _alpha;
+
+  // size of blocks
+  double _dz;
+
+  // angle of fault
+  double _dip;
+
+  double _depth;
+
+  //length/width of fault
+  double _L;
+  double _W;
+
+  // dislocations
+  double _d1;
+  double _d2;
+  double _d3; 
+
   double Eval(UInt i, UInt j) const;
 };
 
