@@ -163,7 +163,7 @@ void GreensFnOkada::Init(const KeyValueFile* kvf) throw (Exception) {
   kvf->GetDouble("d1", _d1);
   kvf->GetDouble("d2", _d2);
   kvf->GetDouble("d3", _d3);
-  printf("d1: %f, d2: %f, d3: %f", _d1, _d2 _d3);
+  printf("d1: %f, d2: %f, d3: %f", _d1, _d2, _d3);
 
 }
 
