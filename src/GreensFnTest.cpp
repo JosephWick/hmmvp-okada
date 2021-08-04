@@ -75,6 +75,7 @@ void GreensFnTest::Init (const KeyValueFile* kvf) throw (Exception) {
   double d;
   const Matd* m;
   UInt tmp;
+  double d2;
 
   if (!kvf->GetMatd("X", m)) throw Exception("Missing X.");
   _x = *m;
