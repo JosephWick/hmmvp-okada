@@ -102,6 +102,7 @@ public:
    corresponds to the string identifier and include it here. */
 #include "GreensFnInverseR.cpp"
 #include "GreensFnOkada.cpp"
+#include "GreensFnTest.cpp"
 
 ImplGreensFn* NewGreensFn (const string& id, const KeyValueFile* kvf)
   throw (Exception)
