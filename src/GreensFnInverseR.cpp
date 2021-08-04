@@ -54,6 +54,7 @@ void InverseRGreensFn::Init (const KeyValueFile* kvf) throw (Exception) {
 
   kvf->GetDouble("delta", _delta);
   if (_delta < 0) throw Exception("delta must be >= 0.");
+  printf("\ndelta: %d\n", _delta);
 }
 
 bool InverseRGreensFn::
