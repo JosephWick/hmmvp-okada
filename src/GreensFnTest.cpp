@@ -52,7 +52,9 @@ private:
 };
 
 inline double GreensFnTest::Eval (UInt i, UInt j) const {
-  
+
+  int meshL = _L/_dz;
+  int meshW = _W/_dz;
 
   return i+j;
 }
