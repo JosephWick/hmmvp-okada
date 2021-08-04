@@ -92,7 +92,7 @@ void GreensFnTest::Init (const KeyValueFile* kvf) throw (Exception) {
   int a = tmp;
   int b = tmp2;
   printf("a: %d, b: %d\n", a, b);
-  _delta = a/b;
+  _delta = a/(double)b;
   printf("delta: %d\n", _delta);
 
   if (kvf->GetDouble("arse", d2)){
