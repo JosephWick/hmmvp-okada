@@ -85,7 +85,7 @@ void GreensFnTest::Init (const KeyValueFile* kvf) throw (Exception) {
   printf("order: %d\n", _order);
 
   if (kvf->GetDouble("delta", d)) tmp = (UInt) d;
-  if (kvf->GetDouble("deltaDiv", d)) _delta = _delta/d;
+  if (kvf->GetDouble("deltaDiv", d)) _delta = tmp/((UInt)d);
   printf("delta: %d\n", tmp);
 
   if (kvf->GetDouble("arse", d2)){
