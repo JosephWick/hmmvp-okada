@@ -46,6 +46,7 @@ inline double GreensFnTest::Eval (UInt i, UInt j) const {
 void GreensFnTest::Init (const KeyValueFile* kvf) throw (Exception) {
   double d;
   const Matd* m;
+  double tmp;
 
   if (!kvf->GetMatd("X", m)) throw Exception("Missing X.");
   _x = *m;
