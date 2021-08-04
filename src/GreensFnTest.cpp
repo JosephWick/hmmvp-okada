@@ -40,8 +40,8 @@ private:
   double _depth;
 
   //length/width of fault
-  double _L;
-  double _W;
+  double _len;
+  double _wid;
 
   // dislocations
   double _d1;
@@ -57,8 +57,8 @@ inline double GreensFnTest::Eval (UInt i, UInt j) const {
 
   // first lets find dimensions of mesh
   printf("%d, %d, %d", _L, _W, _dz);
-  int meshL = _L/_dz;
-  int meshW = _W/_dz;
+  int meshL = _len/_dz;
+  int meshW = _wid/_dz;
 
   printf("%d, %d", meshL, meshW);
 
