@@ -973,9 +973,6 @@ static inline bool BlockIsOnDiag (const MatBlock& b) {
   // This method should work for all problems. It counts more than just
   // on-diagonal blocks, but as long as there aren't too many, this only
   // improves the accuracy of the estimate.
-  printf("BIOD\n");
-  printf("%d", Hd::cluster_tree_min_points);
-  printf("%d", b.n);
   return (b.m <= Hd::cluster_tree_min_points &&
           b.n <= Hd::cluster_tree_min_points);
 #endif
@@ -1003,14 +1000,10 @@ double Compressor::EstimateBfro ()
   if (mpi::GetNproc() == 1) { // serial or OpenMP
     ProgressBar pb("Estimate ||B||_F", _blocks.size(), GetOutputLevel());
     if (_omp_nthreads == 1) { // serial
-      printf("\nbegFor, nb=%d\n", _blocks.size());
       for (UInt i = 0, nb = _blocks.size(); i < nb; i++) {
-        printf("%d ", i);
         if (BlockIsOnDiag(_blocks[i]))
-          printf("-d ");
           nf2 += FullBlockNormFro2(_ma, _blocks[i]);
         pb.Incr();
-      printf("\ndoneFor\n");
       }
     } else { // OpenMP
       omp_set_num_threads(_omp_nthreads);
