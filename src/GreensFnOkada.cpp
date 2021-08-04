@@ -64,7 +64,7 @@ private:
 inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   //find individual values to the hmatrix here
   // i is the reeiver, j is the source
-  //printf("%d,%d\n", i, j);
+  
   // first lets find dimensions of mesh
   int meshL = _L/_dz;
   int meshW = _W/_dz;
@@ -74,12 +74,12 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
 
   // getting parameters
   // for observer position
-  double obsx = (i - 0.5); //* _dz;
-  double obsy = (j - 0.5); //* _dz;
+  double obsx = (i - 0.5) * _dz;
+  double obsy = (j - 0.5) * _dz;
   double obsz = 0.0;
 
   // for source depth
-  double srcdepth = (j % meshW)*_dz + _depth;
+  double srcdepth = (j)*_dz + _depth;
 
   // pointer business
   double tmp1 = 0.5*_L;
