@@ -64,7 +64,7 @@ private:
 inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   //find individual values to the hmatrix here
   // i is the reeiver, j is the source
-
+  printf("%d,%d\n", i, j);
   // first lets find dimensions of mesh
   int meshL = _L/_dz;
   int meshW = _W/_dz;
