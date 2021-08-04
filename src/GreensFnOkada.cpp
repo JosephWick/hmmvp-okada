@@ -92,18 +92,20 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   double * pD3 = const_cast<double*>(&_d3);
 
   // outputs
-  double * ux=-1.0;
-  double * uy=-1.0;
-  double * uz=-1.0;
-  double * uxx=-1.0;
-  double * uyx=-1.0;
-  double * uzx=-1.0;
-  double * uxy=-1.0;
-  double * uyy=-1.0;
-  double * uzy=-1.0;
-  double * uxz=-1.0;
-  double * uyz=-1.0;
-  double * uzz=-1.0;
+  double * ux;
+  double * uy;
+  double * uz;
+  double * uxx;
+  double * uyx;
+  double * uzx;
+  double * uxy;
+  double * uyy;
+  double * uzy;
+  double * uxz;
+  double * uyz;
+  double * uzz;
+
+  ux = 0.0;
 
   dc3d_(ph, pAlpha, &obsx, &obsy, &obsz, &srcdepth, pDip, &zL, pL, &zW, pW, pD1, pD2, pD3, ux, uy, uz, uxx, uyx, uzx, uxy, uyy, uzy, uxz, uyz, uzz);
   return i+j;
