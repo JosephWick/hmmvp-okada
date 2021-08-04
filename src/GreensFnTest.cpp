@@ -56,7 +56,7 @@ inline double GreensFnTest::Eval (UInt i, UInt j) const {
   // i is the reeiver, j is the source
 
   // first lets find dimensions of mesh
-  printf("\n__%d, %d, %d__\n", _len, _wid, _dz);
+  //printf("\n__%d, %d, %d__\n", _len, _wid, _dz);
   int meshL = _len/_dz;
   int meshW = _wid/_dz;
 
