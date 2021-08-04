@@ -75,6 +75,7 @@ void GreensFnTest::Init (const KeyValueFile* kvf) throw (Exception) {
   double d;
   const Matd* m;
   UInt tmp;
+  UInt tmp2;
   double d2;
 
   if (!kvf->GetMatd("X", m)) throw Exception("Missing X.");
@@ -85,9 +86,10 @@ void GreensFnTest::Init (const KeyValueFile* kvf) throw (Exception) {
   printf("order: %d\n", _order);
 
   if (kvf->GetDouble("delta", d)) tmp = (UInt) d;
-  if (kvf->GetDouble("deltaDiv", d)) _delta = tmp/(d);
+  if (kvf->GetDouble("deltaDiv", d)) tmp2 = (UInt) d;
   printf("tmp: %d\n", tmp);
   printf("d: %d\n", d);
+  _delta = tmp/tmp2;
   printf("delta: %d\n", _delta);
 
   if (kvf->GetDouble("arse", d2)){
