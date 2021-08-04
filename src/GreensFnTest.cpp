@@ -52,48 +52,7 @@ private:
 };
 
 inline double GreensFnTest::Eval (UInt i, UInt j) const {
-  //find individual values to the hmatrix here
-  // i is the reeiver, j is the source
-
-  // first lets find dimensions of mesh
-  int meshL = _L/_dz;
-  int meshW = _W/_dz;
-
-  double zL = 0.0;
-  double zW = 0.0;
-
-  // getting parameters
-  // for observer position
-  double obsx = ((i % meshL) + 0.5) * _dz;
-  double obsy = ((i % meshW) + 0.5) * _dz;
-  double obsz = 0.0;
-
-  // for source depth
-  double srcdepth = (j % meshW)*_dz + _depth ;
-
-  // pointer business
-  char * ph = const_cast<char*>(&_h);
-  double * pAlpha = const_cast<double*>(&_alpha);
-  double * pDip = const_cast<double*>(&_dip);
-  double * pL = const_cast<double*>(&_L);
-  double * pW = const_cast<double*>(&_W);
-  double * pD1 = const_cast<double*>(&_d1);
-  double * pD2 = const_cast<double*>(&_d2);
-  double * pD3 = const_cast<double*>(&_d3);
-
-  // outputs
-  double * ux;
-  double * uy;
-  double * uz;
-  double * uxx;
-  double * uyx;
-  double * uzx;
-  double * uxy;
-  double * uyy;
-  double * uzy;
-  double * uxz;
-  double * uyz;
-  double * uzz;
+  
 
   return i+j;
 }
