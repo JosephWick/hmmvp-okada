@@ -74,8 +74,8 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
 
   // getting parameters
   // for observer position
-  double obsx = (i - 0.5) * _dz;
-  double obsy = (j - 0.5) * _dz;
+  double obsx = (i - 0.5); //* _dz;
+  double obsy = (j - 0.5); //* _dz;
   double obsz = 0.0;
 
   // for source depth
