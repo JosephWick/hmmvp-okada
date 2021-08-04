@@ -125,8 +125,8 @@ void GreensFnOkada::Init(const KeyValueFile* kvf) throw (Exception) {
   printf("delta: %f\n", _delta);
 
   _h = 'f';
-  //kvf->GetDouble("halfspace", tmp);
-  //if (tmp == 1.0) _h = 'h';
+  kvf->GetDouble("halfspace", tmp);
+  if (tmp == 1.0) _h = 'h';
   printf("h: %c\n", _h);
 
   kvf->GetDouble("mu", _mu);
