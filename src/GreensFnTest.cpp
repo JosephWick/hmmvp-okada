@@ -52,9 +52,18 @@ private:
 };
 
 inline double GreensFnTest::Eval (UInt i, UInt j) const {
+  //find individual values to the hmatrix here
+  // i is the reeiver, j is the source
 
+  // first lets find dimensions of mesh
   int meshL = _L/_dz;
   int meshW = _W/_dz;
+
+  // getting parameters
+  // for observer position
+  double obsx = ((i % meshL) + 0.5) * _dz;
+  double obsy = ((i % meshW) + 0.5) * _dz;
+  double obsz = 0.0;
 
   return i+j;
 }
