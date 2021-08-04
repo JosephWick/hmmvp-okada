@@ -13,10 +13,10 @@ using namespace std;
 extern "C"{
 void dc3d_(char *SPACE, double *ALPHA, double *X, double *Y, double *Z,
               double *DEPTH, double *DIP, double *AL1, double *AL2, double *AW1,
-              double *AW2, double *DISL1, double *DISL2, double *DISL3, double *ux,
-              double *uy, double *uz, double *uxx, double *uyx, double* uzx,
-              double *uxy, double *uyy, double *uzy, double *uxz, double *uyz,
-              double *uzz);
+              double *AW2, double *DISL1, double *DISL2, double *DISL3, double *UX,
+              double *UY, double *UZ, double *UXX, double *UYX, double* UZX,
+              double *UXY, double *UYY, double *UZY, double *UXZ, double *UYZ,
+              double *UZZ);
 }
 
 
