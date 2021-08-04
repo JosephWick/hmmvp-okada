@@ -99,7 +99,7 @@ void GreensFnTest::Init (const KeyValueFile* kvf) throw (Exception) {
   _alpha = (tmp+_mu)/(tmp+2*_mu);
 
   kvf->GetDouble("dz", _dz);
-  print("dz: %d", _dz);
+  printf("dz: %d", _dz);
   if (_dz <=0) throw Exception("dz must be greater than 0.");
 
   kvf->GetDouble("dip", _dip);
