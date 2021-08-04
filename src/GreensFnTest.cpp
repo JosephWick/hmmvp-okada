@@ -84,39 +84,13 @@ void GreensFnTest::Init (const KeyValueFile* kvf) throw (Exception) {
 
   kvf->GetDouble("delta", _delta);
   if (_delta < 0) throw Exception("delta must be >= 0.");
-
-  _h = 'f';
-  kvf->GetDouble("halfspace", tmp);
-  if (tmp == 1.0) _h = 'h';
-
-  kvf->GetDouble("mu", _mu);
-  if (_mu < 1) throw Exception("mu must be greater than 0.");
-
-  kvf->GetDouble("nu", _nu);
-  if (_nu <=0) throw Exception("nu must be greater than 0.");
-
-  tmp = (2*_mu*_nu)/(1-2*_nu);
-  _alpha = (tmp+_mu)/(tmp+2*_mu);
+  printf("\ndelta: %d\n", delta);
 
   kvf->GetDouble("dz", d);
   _dz = d;
-  printf("d: , %d; dz: %d", d, _dz);
+  printf("\nd: , %d; dz: %d\n", d, _dz);
   if (_dz <=0) throw Exception("dz must be greater than 0.");
 
-  kvf->GetDouble("dip", _dip);
-  if (_dip <0 || _dip>360) throw Exception("dip must be 0<dip<360.");
-
-  kvf->GetDouble("depth", _depth);
-
-  kvf->GetDouble("L", _len);
-  if (_len<=0) throw Exception("L must be greater than 0.");
-
-  kvf->GetDouble("W", _wid);
-  if (_wid <= 0 ) throw Exception("W must be greater than 0.");
-
-  kvf->GetDouble("d1", _d1);
-  kvf->GetDouble("d2", _d2);
-  kvf->GetDouble("d3", _d3);
 
 
 }
