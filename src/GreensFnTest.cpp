@@ -107,10 +107,10 @@ void GreensFnTest::Init (const KeyValueFile* kvf) throw (Exception) {
   kvf->GetDouble("depth", _depth);
 
   kvf->GetDouble("L", _len);
-  if (_len<0) throw Exception("L must be greater than 0.");
+  if (_len<=0) throw Exception("L must be greater than 0.");
 
   kvf->GetDouble("W", _wid);
-  if (_wid < 0 ) throw Exception("W must be greater than 0.");
+  if (_wid <= 0 ) throw Exception("W must be greater than 0.");
 
   kvf->GetDouble("d1", _d1);
   kvf->GetDouble("d2", _d2);
