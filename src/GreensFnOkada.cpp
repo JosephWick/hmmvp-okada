@@ -105,8 +105,8 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   double * uyz;
   double * uzz;
 
-  //dc3d_(ph, pAlpha, &obsx, &obsy, &obsz, &srcdepth, pDip, &zL, pL, &zW, pW, pD1, pD2, pD3, ux, uy, uz, uxx, uyx, uzx, uxy, uyy, uzy, uxz, uyz, uzz);
-  return j;
+  dc3d_(ph, pAlpha, &obsx, &obsy, &obsz, &srcdepth, pDip, &zL, pL, &zW, pW, pD1, pD2, pD3, ux, uy, uz, uxx, uyx, uzx, uxy, uyy, uzy, uxz, uyz, uzz);
+  return i;
 }
 
 void GreensFnOkada::Init(const KeyValueFile* kvf) throw (Exception) {
