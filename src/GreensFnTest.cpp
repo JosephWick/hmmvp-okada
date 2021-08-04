@@ -81,10 +81,10 @@ void GreensFnTest::Init (const KeyValueFile* kvf) throw (Exception) {
   _x = *m;
   if (_x.Size(1) != 3) throw Exception("X must be 3xN.");
 
-  if (kvf->GetDouble("order", *d)) _order = (UInt) d;
+  if (kvf->GetDouble("order", d)) _order = (UInt) d;
   printf("order: %d\n", _order);
 
-  if (kvf->GetDouble("delta", d2)){
+  if (kvf->GetDouble("delta", *d2)){
     printf("T, %d", *d2);
   }else{
     printf("F, %d", d);
