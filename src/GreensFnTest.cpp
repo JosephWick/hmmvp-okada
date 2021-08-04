@@ -91,7 +91,7 @@ void GreensFnTest::Init (const KeyValueFile* kvf) throw (Exception) {
   printf("d: %d; dz: %d\n", d, _dz);
   if (_dz <=0) throw Exception("dz must be greater than 0.");
 
-
+  printf(kvf->GetDouble("delta", d2));
 
 }
 
