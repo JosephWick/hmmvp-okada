@@ -73,7 +73,6 @@ inline double GreensFnTest::Eval (UInt i, UInt j) const {
 
 void GreensFnTest::Init (const KeyValueFile* kvf) throw (Exception) {
   double d;
-  double d2;
   const Matd* m;
   UInt tmp;
 
@@ -85,7 +84,7 @@ void GreensFnTest::Init (const KeyValueFile* kvf) throw (Exception) {
   printf("order: %d\n", _order);
 
   if (kvf->GetDouble("delta", d)) tmp = (UInt) d;
-  if (kvf->GetDouble("deltaDiv", d)) _delta = tmp/((UInt)d);
+  if (kvf->GetDouble("deltaDiv", d)) _delta = tmp/(d);
   printf("delta: %d\n", _delta);
 
   if (kvf->GetDouble("arse", d2)){
