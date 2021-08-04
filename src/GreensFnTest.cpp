@@ -72,7 +72,7 @@ inline double GreensFnTest::Eval (UInt i, UInt j) const {
 }
 
 void GreensFnTest::Init (const KeyValueFile* kvf) throw (Exception) {
-  double* d;
+  double d;
   const Matd* m;
   double tmp;
 
@@ -80,17 +80,17 @@ void GreensFnTest::Init (const KeyValueFile* kvf) throw (Exception) {
   _x = *m;
   if (_x.Size(1) != 3) throw Exception("X must be 3xN.");
 
-  if (kvf->GetDouble("order", *d)) _order = (UInt) *d;
-  printf("order: %d\n", *d);
+  if (kvf->GetDouble("order", d)) _order = (UInt) d;
+  printf("order: %d\n", _order);
 
   kvf->GetDouble("delta", _delta);
   if (_delta < 0) throw Exception("delta must be >= 0.");
   printf("delta: %d\n", _delta);
 
-  //kvf->GetDouble("dz", d);
-  //_dz = d;
-  //printf("\nd: , %d; dz: %d\n", d, _dz);
-  //if (_dz <=0) throw Exception("dz must be greater than 0.");
+  kvf->GetDouble("dz", d);
+  _dz = d;
+  printf("\nd: , %d; dz: %d\n", d, _dz);
+  if (_dz <=0) throw Exception("dz must be greater than 0.");
 
 
 
