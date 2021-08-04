@@ -68,6 +68,7 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   // first lets find dimensions of mesh
   int meshL = _L/_dz;
   int meshW = _W/_dz;
+  printf("meshL: %d\n", meshL)
 
   double zL = 0;
   double zW = 0;
