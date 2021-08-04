@@ -68,7 +68,7 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   // first lets find dimensions of mesh
   int meshL = _L/_dz;
   int meshW = _W/_dz;
-  printf("meshL: %d\n", meshL)
+  printf("meshL: %d\n", meshL);
 
   double zL = 0;
   double zW = 0;
@@ -80,7 +80,7 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   double obsz = 0.0;
 
   // for source depth
-  double srcdepth = (j % meshW)*_dz + _depth ;
+  double srcdepth = (j % meshW)*_dz + _depth;
 
   // pointer business
   double tmp1 = 0.5*_L;
