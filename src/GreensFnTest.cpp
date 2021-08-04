@@ -59,6 +59,8 @@ inline double GreensFnTest::Eval (UInt i, UInt j) const {
   int meshL = _L/_dz;
   int meshW = _W/_dz;
 
+  printf("%d, %d", meshL, meshW);
+
   // getting parameters
   // for observer position
   double obsx = ((i % meshL) + 0.5) * _dz;
