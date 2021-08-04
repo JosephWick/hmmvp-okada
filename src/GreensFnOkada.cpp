@@ -122,37 +122,48 @@ void GreensFnOkada::Init(const KeyValueFile* kvf) throw (Exception) {
 
   kvf->GetDouble("delta", _delta);
   if (_delta < 0) throw Exception("delta must be >= 0.");
+  printf("delta: %f\n", _delta);
 
   _h = 'f';
   kvf->GetDouble("halfspace", tmp);
   if (tmp == 1.0) _h = 'h';
+  printf("h: %s\n", _h);
 
   kvf->GetDouble("mu", _mu);
   if (_mu < 1) throw Exception("mu must be greater than 0.");
+  printf("mu: %f\n", _mu);
 
   kvf->GetDouble("nu", _nu);
   if (_nu <=0) throw Exception("nu must be greater than 0.");
+  printf("nu: %f\n", _nu);
 
   tmp = (2*_mu*_nu)/(1-2*_nu);
   _alpha = (tmp+_mu)/(tmp+2*_mu);
+  printf("alpha: %f\n", _alpha);
 
   kvf->GetDouble("dz", _dz);
   if (_dz <=0) throw Exception("dz must be greater than 0.");
+  printf("dz: %f\n", _dz);
 
   kvf->GetDouble("dip", _dip);
   if (_dip <0 || _dip>360) throw Exception("dip must be 0<dip<360.");
+  printf("dip: %f\n", _dip);
 
   kvf->GetDouble("depth", _depth);
+  printf("depth: %f\n", _depth);
 
   kvf->GetDouble("L", _L);
   if (_L<0) throw Exception("L must be greater than 0.");
+  print("L: %f\n", _L);
 
   kvf->GetDouble("W", _W);
   if (_W < 0 ) throw Exception("W must be greater than 0.");
+  printf("W: %f\n", _W);
 
   kvf->GetDouble("d1", _d1);
   kvf->GetDouble("d2", _d2);
   kvf->GetDouble("d3", _d3);
+  printf("d1: %f, d2: %f, d3: %f", _d1, _d2 _d3);
 
 }
 
