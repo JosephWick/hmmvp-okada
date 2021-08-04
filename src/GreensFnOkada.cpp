@@ -68,15 +68,14 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   // first lets find dimensions of mesh
   int meshL = _L/_dz;
   int meshW = _W/_dz;
-  printf("meshL: %d\n", meshL);
 
   double zL = 0;
   double zW = 0;
 
   // getting parameters
   // for observer position
-  double obsx = ((i % meshL) + 0.5) * _dz;
-  double obsy = ((j % meshW) + 0.5) * _dz;
+  double obsx = (i - 0.5) * _dz;
+  double obsy = (j - 0.5) * _dz;
   double obsz = 0.0;
 
   // for source depth
