@@ -154,7 +154,7 @@ void GreensFnOkada::Init(const KeyValueFile* kvf) throw (Exception) {
 
   kvf->GetDouble("L", _L);
   if (_L<0) throw Exception("L must be greater than 0.");
-  print("L: %f\n", _L);
+  printf("L: %f\n", _L);
 
   kvf->GetDouble("W", _W);
   if (_W < 0 ) throw Exception("W must be greater than 0.");
