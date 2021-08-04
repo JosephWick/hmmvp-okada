@@ -64,9 +64,9 @@ inline double GreensFnTest::Eval (UInt i, UInt j) const {
 
   // getting parameters
   // for observer position
-  double obsx = ((i % meshL) + 0.5) * _dz;
-  double obsy = ((i % meshW) + 0.5) * _dz;
-  double obsz = 0.0;
+  //double obsx = ((i % meshL) + 0.5) * _dz;
+  //double obsy = ((i % meshW) + 0.5) * _dz;
+  //double obsz = 0.0;
 
   return i+j;
 }
