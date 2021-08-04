@@ -60,7 +60,7 @@ inline double GreensFnTest::Eval (UInt i, UInt j) const {
   int meshL = _len/_dz;
   int meshW = _wid/_dz;
 
-  printf("%d, %d", meshL, meshW);
+  //printf("%d, %d", meshL, meshW);
 
   // getting parameters
   // for observer position
