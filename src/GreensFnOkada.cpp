@@ -110,6 +110,7 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   printf("alpha: %f\n", _alpha);
   printf("obsx: %f, obsy: %f, obsz: %f\n", obsx, obsy, obsz);
   printf("srcdepth: %f, dip: %f\n", srcdepth, _dip);
+  printf("d1: %f, d2: %f, d3: %f", pD1, pD2, pD3);
   printf("================\n");
 
   dc3d_(ph, pAlpha, &obsx, &obsy, &obsz, &srcdepth, pDip, &zL, pL, &zW, pW, pD1, pD2, pD3, &ux, &uy, &uz, &uxx, &uyx, &uzx, &uxy, &uyy, &uzy, &uxz, &uyz, &uzz);
