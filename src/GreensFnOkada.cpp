@@ -80,7 +80,7 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   printf("dz: %f, i: %d, _x: %f, obsy: %f\n", _dz, i, _x(2,i), obsy);
 
   // for source depth; source measured from top left
-  double srcdepth = (double)_x(2,j)*_dz;
+  double srcdepth = (double)_x(2,j);
 
   // pointer business
   double tmp1 = 0.5*_L;
