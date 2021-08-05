@@ -80,7 +80,8 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
 
   if (i==j && i==1){
     for (int k=1; k<=10;k++)
-      printf("k: %d, _x(2,k): %d\n", k, _x(1,k));
+      printf("k: %d, _x(3,k): %d\n", k, _x(3,k));
+    printf("dz: %d\n", _dz);
   }
 
   // for source depth; source measured from top left
