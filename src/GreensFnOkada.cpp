@@ -83,13 +83,13 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   double tmp1 = 0.5*_L;
   double tmp2 = 0.5*_W;
   char * ph = const_cast<char*>(&_h);
-  double * pAlpha = const_cast<double*>(&_alpha);
-  double * pDip = const_cast<double*>(&_dip);
-  double * pL = const_cast<double*>(&_L);
-  double * pW = const_cast<double*>(&_W);
-  double * pD1 = const_cast<double*>(&_d1);
-  double * pD2 = const_cast<double*>(&_d2);
-  double * pD3 = const_cast<double*>(&_d3);
+  double * pAlpha = const_cast<double*>(_alpha);
+  double * pDip = const_cast<double*>(_dip);
+  double * pL = const_cast<double*>(_L);
+  double * pW = const_cast<double*>(_W);
+  double * pD1 = const_cast<double*>(_d1);
+  double * pD2 = const_cast<double*>(_d2);
+  double * pD3 = const_cast<double*>(_d3);
 
   // outputs
   double ux;
@@ -110,7 +110,7 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   printf("alpha: %f\n", _alpha);
   printf("obsx: %f, obsy: %f, obsz: %f\n", obsx, obsy, obsz);
   printf("srcdepth: %f, dip: %f\n", srcdepth, _dip);
-  printf("d1: %f, d2: %f, d3: %f", pD1, pD2, pD3);
+  printf("d1: %f, d2: %f, d3: %f\n", pD1, pD2, pD3);
   printf("================\n");
 
   dc3d_(ph, pAlpha, &obsx, &obsy, &obsz, &srcdepth, pDip, &zL, pL, &zW, pW, pD1, pD2, pD3, &ux, &uy, &uz, &uxx, &uyx, &uzx, &uxy, &uyy, &uzy, &uxz, &uyz, &uzz);
