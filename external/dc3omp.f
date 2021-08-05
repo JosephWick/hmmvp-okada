@@ -509,6 +509,8 @@ C
       REAL*8   CX,CY,CDISL1,CDISL2,CDIP,CAL1,CAL2,CAW1,CAW2
       CHARACTER SPACE
 
+      print *, '\n|f|\n' ALPHA, X, Y, Z, '\n'
+
       CX=X
       CY=Y
       CDIP=DIP
