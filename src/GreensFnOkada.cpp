@@ -78,7 +78,7 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   double obsy = _x(2, i)-(0.5*_dz);
   double obsz = _x(3, i);
 
-  print("_x(1,i): %d, _x(2,i): %d", _x(1,i), _x(2,i));
+  printf("_x(1,i): %d, _x(2,i): %d", _x(1,i), _x(2,i));
 
   // for source depth; source measured from top left
   double srcdepth = _x(2,j);
