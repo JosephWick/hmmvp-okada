@@ -75,7 +75,7 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   // getting parameters
   // for observer position; obs/rec is measured from center
   double obsx = 0;
-  double obsy = (((double)_x(2,i)+0.5)*_dz);
+  double obsy = (double)_x(2,i) + (0.5*_dz);
   double obsz = 0;
   printf("dz: %f, i: %d, _x: %f, obsy: %f\n", _dz, i, _x(2,i), obsy);
 
