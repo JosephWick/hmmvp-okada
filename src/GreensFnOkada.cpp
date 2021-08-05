@@ -74,7 +74,7 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   double obsx = (double)_x(1,i) + 0.5*_dz;
   double obsy = (double)_x(2,i) - (0.5*_dz);
   double obsz = 0;
-  printf("dz: %f, i: %d, _x: %f, obsy: %f\n", _dz, i, _x(2,i), obsy);
+  //printf("dz: %f, i: %d, _x: %f, obsy: %f\n", _dz, i, _x(2,i), obsy);
 
   // for source depth; source measured from top left
   double srcdepth = (double)_x(2,j);
@@ -104,6 +104,9 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   double uxz;
   double uyz;
   double uzz;
+
+  printf("h: %c, a: %f, obsx: %f, obsy: %f, obsz: %f, srcdepth: %f, dip: %f, l1: %f, l2: %f, w1: %f, w2: %f, d1: %f, d2: %f d3: %f\n", ph, pAlpha, obsx, obxy, obxz, srcdepth,
+            pDip, zL, pL, zW, pW, pD1, pD2, pD3);
 
   dc3d_(ph, pAlpha, &obsx, &obsy, &obsz, &srcdepth, pDip, &zL, pL, &zW, pW, pD1, pD2, pD3, &ux, &uy, &uz, &uxx, &uyx, &uzx, &uxy, &uyy, &uzy, &uxz, &uyz, &uzz);
 
