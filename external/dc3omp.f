@@ -509,7 +509,7 @@ C
       REAL*8   CX,CY,CDISL1,CDISL2,CDIP,CAL1,CAL2,CAW1,CAW2
       CHARACTER SPACE
 
-      print *, '\n|f|\n' ALPHA, X, Y, Z, '\n'
+      print *, '|f|' ALPHA, X, Y, Z, DEPTH, DIP, AL1, AL2, AW1, AW2, DISL1, DISL2, DISL2, '|f|'
 
       CX=X
       CY=Y
