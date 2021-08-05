@@ -65,17 +65,14 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   //find individual values to the hmatrix here
   // i is the reeiver, j is the source
 
-  // first lets find dimensions of mesh
-  int meshL = _L/_dz;
-  int meshW = _W/_dz;
-
+  // these correspond to AL1 and AW1 respectively
   double zL = 0;
   double zW = 0;
 
   // getting parameters
   // for observer position; obs/rec is measured from center
-  double obsx = 0;
-  double obsy = (double)_x(2,i) + (0.5*_dz);
+  double obsx = (double)_x(1,i) + 0.5*_dz;
+  double obsy = (double)_x(2,i) - (0.5*_dz);
   double obsz = 0;
   printf("dz: %f, i: %d, _x: %f, obsy: %f\n", _dz, i, _x(2,i), obsy);
 
