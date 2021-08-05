@@ -82,14 +82,14 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   // pointer business
   double tmp1 = 0.5*_L;
   double tmp2 = 0.5*_W;
-  char * ph = const_cast<char*>(&_h);
-  double * pAlpha = const_cast<double*>(_alpha);
-  double * pDip = const_cast<double*>(_dip);
-  double * pL = const_cast<double*>(_L);
-  double * pW = const_cast<double*>(_W);
-  double * pD1 = const_cast<double*>(_d1);
-  double * pD2 = const_cast<double*>(_d2);
-  double * pD3 = const_cast<double*>(_d3);
+  char ph = const_cast<char>(_h);
+  double pAlpha = const_cast<double>(_alpha);
+  double pDip = const_cast<double>(_dip);
+  double pL = const_cast<double>(_L);
+  double pW = const_cast<double>(_W);
+  double pD1 = const_cast<double>(_d1);
+  double pD2 = const_cast<double>(_d2);
+  double pD3 = const_cast<double>(_d3);
 
   // outputs
   double ux;
