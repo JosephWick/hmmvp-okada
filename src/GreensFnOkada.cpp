@@ -115,7 +115,13 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   printf("d1: %f, d2: %f, d3: %f\n", *pD1, *pD2, *pD3);
   printf("================\n");
 
-  dc3d_(ph, pAlpha, &obsx, &obsy, &obsz, &srcdepth, pDip, &zL, pL, &zW, pW, pD1, pD2, pD3, &ux, &uy, &uz, &uxx, &uyx, &uzx, &uxy, &uyy, &uzy, &uxz, &uyz, &uzz);
+  dc3d_(ph, pAlpha,
+        &obsx, &obsy, &obsz, 
+        &srcdepth, pDip,
+        &zL, pL, &
+        zW, pW,
+        pD1, pD2, pD3,
+        &ux, &uy, &uz, &uxx, &uyx, &uzx, &uxy, &uyy, &uzy, &uxz, &uyz, &uzz);
 
   double out = _mu*(uxy + uyx);
   //printf("out: %f\n", out);
@@ -130,7 +136,7 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   double x3 = obsy;
   double x2 = obsx;
   double y3 = srcdepth-1.0;
-  double y2 = (double)_x(1,i);
+  double y2 = (double)_x(1,j);
   double W = _dz;
 
   double s12 = (G/(2*M_PI))*( -(x3-y3)/(pow((x2-y2),2) + pow((x3-y3),2))
