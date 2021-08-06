@@ -24,6 +24,12 @@ private:
 
 inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
 
+  // constants 
+  double rho = 2670.0;
+  double Vs = 3464.0;
+  double G = rho*(pow(Vs, 2))/1e6;
+
+  // args
   double x2 = (double)_x(1,i) + 0.5*_dz;
   double x3 = (double)_x(2,i) - 0.5*_dz;
 
