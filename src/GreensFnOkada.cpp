@@ -136,7 +136,7 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   double s12 = (G/(2*M_PI))*( -(x3-y3)/(pow((x2-y2),2) + pow((x3-y3),2))
                               +(x3+y3)/(pow((x2-y2),2) + pow((x3+y3),2))
                               +(x3-y3-W)/(pow((x2-y2),2) + pow((x3-y3-W),2))
-                              -(x3+y3+W)/(pow((x2-y2),2) + pow((x3+y3+W),2)) )
+                              -(x3+y3+W)/(pow((x2-y2),2) + pow((x3+y3+W),2)) );
   printf("out: %f\n", out);
   printf("s12: %f\n", s12);
   return out;
