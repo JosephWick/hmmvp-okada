@@ -22,7 +22,7 @@ private:
   double Eval(UInt i, UInt j) const;
 };
 
-inline double GreensFnOkada::Eval (UInt i, UInt j) const {
+inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
 
   double x2 = (double)_x(1,i) + 0.5*_dz;
   double x3 = (double)_x(2,i) - 0.5*_dz;
