@@ -129,8 +129,8 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
 
   double x3 = obsy;
   double x2 = obsx;
-  double y3 = srcdepth;
-  double y2 = (double)_x(1,i)-1;
+  double y3 = srcdepth-1.0;
+  double y2 = (double)_x(1,i);
   double W = _dz;
 
   double s12 = (G/(2*M_PI))*( -(x3-y3)/(pow((x2-y2),2) + pow((x3-y3),2))
