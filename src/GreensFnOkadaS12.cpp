@@ -27,7 +27,7 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   double x2 = (double)_x(1,i) + 0.5*_dz;
   double x3 = (double)_x(2,i) - 0.5*_dz;
 
-  double y2 = _x(1,)
+  double y2 = _x(1,j)
   double y3 = _x(2,j);
   double W = _dz;
 
