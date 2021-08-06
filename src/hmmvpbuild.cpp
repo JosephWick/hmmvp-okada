@@ -103,6 +103,7 @@ public:
 #include "GreensFnInverseR.cpp"
 #include "GreensFnOkada.cpp"
 #include "GreensFnTest.cpp"
+#include "GreensFnOkadaS12.cpp"
 
 ImplGreensFn* NewGreensFn (const string& id, const KeyValueFile* kvf)
   throw (Exception)
@@ -113,7 +114,9 @@ ImplGreensFn* NewGreensFn (const string& id, const KeyValueFile* kvf)
     gf = new InverseRGreensFn();
   } else if (id == "okada") {
     gf = new GreensFnOkada();
-  } else if (id == "test") {
+  } else if (id == "okadaS12") {
+    gf = new GreensFnOkadaS12();  
+  }else if (id == "test") {
     gf = new GreensFnTest();
   } else {
     throw Exception("No such Green's function string identifier.");
