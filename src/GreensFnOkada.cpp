@@ -118,7 +118,7 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   dc3d_(ph, pAlpha, &obsx, &obsy, &obsz, &srcdepth, pDip, &zL, pL, &zW, pW, pD1, pD2, pD3, &ux, &uy, &uz, &uxx, &uyx, &uzx, &uxy, &uyy, &uzy, &uxz, &uyz, &uzz);
 
   double out = _mu*(uxy + uyx);
-  printf("out: %f\n", out);
+  //printf("out: %f\n", out);
 
   // hardcoded 2d greens funcs from val's QDBIM2D.m
   // y-coordinates represent source, x-coordinates represent receiver
@@ -139,7 +139,7 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
                               -(x3+y3+W)/(pow((x2-y2),2) + pow((x3+y3+W),2)) );
   printf("out: %f\n", out);
   printf("s12: %f\n", s12);
-  return out;
+  return s12;
 }
 
 void GreensFnOkada::Init(const KeyValueFile* kvf) throw (Exception) {
