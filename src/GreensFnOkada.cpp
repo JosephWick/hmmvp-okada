@@ -8,6 +8,8 @@
 
 
 #include <iostream>
+#include <cmath>
+#define _USE_MATH_DEFINES
 
 using namespace std;
 extern "C"{
@@ -118,6 +120,24 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   double out = _mu*(uxy + uyx);
   printf("out: %f\n", out);
 
+  // hardcoded 2d greens funcs from val's QDBIM2D.m
+  // y-coordinates represent source, x-coordinates represent receiver
+  // y3 is vertical coordinate, our y
+  double rho = 2670.0;
+  double Vs = 3464.0;
+  double G = rho*(pow(Vs, 2))/1e6;
+
+  double x3 = obsy;
+  double x2 = obsx;
+  double y3 = srcdepth;
+  double y2 = (double)_x(1,i);
+
+  double s12 = (G/(2*M_PI))*( -(x3-y3)/(pow((x2-y2),2) + pow((x3-y3),2))
+                              +(x3+y3)/(pow((x2-y2),2) + pow((x3+y3),2))
+                              +(x3-y3-W)/(pow((x2-y2),2) + pow((x3-y3-W),2))
+                              -(x3+y3+W)/(pow((x2-y2),2) + pow((x3+y3+W),2)) )
+  printf("out: %f\n", out);
+  printf("s12: %f\n", s12);
   return out;
 }
 
