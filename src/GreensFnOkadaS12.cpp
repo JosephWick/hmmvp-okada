@@ -35,7 +35,7 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
 
   double y2 = 0.0; //_x(1,j);
   double y3 = _x(2,j);
-  printf("y3: %f\n", y3);
+  
   double W = _dz;
 
   double s12 = (G/(2*M_PI))*( -(x3-y3)/(pow((x2-y2),2) + pow((x3-y3),2))
