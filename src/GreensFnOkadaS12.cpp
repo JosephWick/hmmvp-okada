@@ -30,10 +30,10 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   double G = rho*(pow(Vs, 2))/1e6;
 
   // args
-  double x2 = 0.0 //(double)_x(1,i) + 0.5*_dz;
+  double x2 = 0.0; //(double)_x(1,i) + 0.5*_dz;
   double x3 = (double)_x(2,i) - 0.5*_dz;
 
-  double y2 = 0.0 //_x(1,j);
+  double y2 = 0.0; //_x(1,j);
   double y3 = _x(2,j);
   printf("y3: %f\n", y3);
   double W = _dz;
