@@ -146,7 +146,7 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
 
   printf("i: %d, j: %d, dc3d: %f, s12: %f\n", i, j, out, s12);
 
-  return s12;
+  return out;
 }
 
 void GreensFnOkada::Init(const KeyValueFile* kvf) throw (Exception) {
