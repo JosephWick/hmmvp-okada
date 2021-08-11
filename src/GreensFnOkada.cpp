@@ -144,7 +144,8 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   //printf("out: %f\n", out);
   //printf("x3: %f, x2: %f, y3: %f, y2: %f, W: %f, s12: %f\n", x3, x2, y3, y2, W, s12);
 
-  printf("i: %d, j: %d, uxy: %f, uyx: %f, dc3d: %f, s12: %f\n", i, j, uxy*100000, uyx*100000, out, s12);
+  double scale = 100000000
+  printf("i: %d, j: %d, uxy: %f, uyx: %f, dc3d: %f, s12: %f\n", i, j, uxy*scale, uyx*scale, out, s12);
 
   return out;
 }
