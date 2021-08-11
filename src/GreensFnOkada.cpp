@@ -107,12 +107,12 @@ inline double GreensFnOkada::Eval (UInt i, UInt j) const {
   double uyz;
   double uzz;
 
-  printf("\n===============\n");
-  printf("alpha: %f\n", *pAlpha);
-  printf("obsx: %f, obsy: %f, obsz: %f\n", obsx, obsy, obsz);
-  printf("srcdepth: %f, dip: %f\n", srcdepth, _dip);
-  printf("d1: %f, d2: %f, d3: %f\n", *pD1, *pD2, *pD3);
-  printf("================\n");
+  //printf("\n===============\n");
+  //printf("alpha: %f\n", *pAlpha);
+  //printf("obsx: %f, obsy: %f, obsz: %f\n", obsx, obsy, obsz);
+  //printf("srcdepth: %f, dip: %f\n", srcdepth, _dip);
+  //printf("d1: %f, d2: %f, d3: %f\n", *pD1, *pD2, *pD3);
+  //printf("================\n");
 
   dc3d_(ph, pAlpha,
         &obsx, &obsy, &obsz,
