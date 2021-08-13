@@ -57,7 +57,7 @@ void GreensFnOkadaS12::Init(const KeyValueFile* kvf) throw (Exception) {
   if (_dz <=0) throw Exception("dz must be greater than 0.");
   printf("dz: %f\n", _dz);
 
-  doublt t;
+  double t;
   kvf->GetDouble("tol", t);
   printf("tol: %f", t);
 
