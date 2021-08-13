@@ -58,7 +58,7 @@ void GreensFnOkadaS12::Init(const KeyValueFile* kvf) throw (Exception) {
   printf("dz: %f\n", _dz);
 
   doublt t;
-  kvf->GetDouble("tol", t;);
+  kvf->GetDouble("tol", t);
   printf("tol: %f", t);
 
 }
