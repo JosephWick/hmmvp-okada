@@ -32,8 +32,8 @@ private:
 inline double GreensFnShear1312::Eval (UInt i, UInt j) const {
   // i is the reeiver, j is the source
 
-  x2 = (double)_x(2,i) - (double)_x(2,j);
-  x3 = (double)_x(3,i) - (double)_x(3,j);
+  double x2 = (double)_x(2,i) - (double)_x(2,j);
+  double x3 = (double)_x(3,i) - (double)_x(3,j);
 
   double s1312 = log(10);
 
