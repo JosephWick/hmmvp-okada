@@ -19,7 +19,7 @@ private:
   // size of blocks
   double _dz;
 
- //rigidity
+ // rigidity
  double _G;
 
   double Eval(UInt i, UInt j) const;
