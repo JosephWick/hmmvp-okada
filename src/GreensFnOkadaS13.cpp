@@ -19,6 +19,9 @@ private:
   // size of blocks
   double _dz;
 
+  // rigidity
+  double _G;
+
   double Eval(UInt i, UInt j) const;
 };
 
