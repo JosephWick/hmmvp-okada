@@ -28,11 +28,11 @@ private:
 inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
 
   // args
-  double x2 = 0.0; //(double)_x(1,i) + 0.5*_dz;
-  double x3 = (double)_x(2,i) - 0.5*_dz;
+  double x2 = (double)_x(2,i) + 0.5*_dz;
+  double x3 = (double)_x(3,i) - 0.5*_dz;
 
-  double y2 = 0.0; //_x(1,j);
-  double y3 = _x(2,j);
+  double y2 = _x(2,j);
+  double y3 = _x(3,j);
 
   double W = _dz;
 
