@@ -63,7 +63,7 @@ void GreensFnOkadaS13::Init(const KeyValueFile* kvf) throw (Exception) {
 
 }
 
-bool GreensFnS13::
+bool GreensFnOkadaS13::
 Call (const CompressBlockInfo& cbi, const vector<UInt>& rs,
       const vector<UInt>& cs, double* B) const {
   for (UInt k=0, ic=0; ic<cs.size(); ic++)
