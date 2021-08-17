@@ -39,13 +39,22 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   int L = _L;
   int W = _W;
 
-  double x2loc = L%(idz);
-  double x3loc = W%(idz);
+  double x2loc = idz%L;
+  if (x2loc == 0) // for when remainer is zero, location is at far end 
+    x2loc = _L/_dz;
+  double x3loc = idz%W;
+  if (x3loc == 0)
+    x3loc = _W/_dz;
+
   double x2 = (double)_x(2,x2loc) - 0.5*_dz;
   double x3 = (double)_x(3,x3loc) - 0.5*_dz;
 
-  double y2loc = L%(jdz);
-  double y3loc = W%(jdz);
+  double y2loc = jdz%L;
+  if (y2loc == 2)
+    y2loc = _L/_dz;
+  if (y2loc == 0)
+    y3loc = _W/_dz;
+  double y3loc = jdz%W;
   double y2 = _x(2,y2loc);
   double y3 = _x(3,y3loc);
 
