@@ -38,12 +38,12 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
 
   double D = (double)_x(3,i)*_dz;
 
-  double s1212 = (G/M_PI)*( atan((x3-D)/(x2+_L/2))
+  double s1212 = (_G/M_PI)*( atan((x3-D)/(x2+_L/2))
                            -atan((x3-D)/(x2-_L/2))
                            +atan((x3-D-_W)/(x2-_L/2))
                            -atan((x3-D-_W)/(x2+_L/2))
                            -atan((x3+D+_W)/(x2-_L/2))
-                           -atan((x3+D)/(x2+_l/2))
+                           -atan((x3+D)/(x2+_L/2))
                            +atan((x3+D)/(x2+_L/2))
                            +atan((x3+D+_W)/(x2+_L/2)));
 
