@@ -44,17 +44,15 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   double x2 = (double)_x(2,x2loc) - 0.5*_dz;
   double x3 = (double)_x(3,x3loc) - 0.5*_dz;
 
-  double y2loc = _L%(jdz);
-  double y3loc = _W%(jdz);
+  double y2loc = L%(jdz);
+  double y3loc = W%(jdz);
   double y2 = _x(2,y2loc);
   double y3 = _x(3,y3loc);
 
-  double W = _dz;
-
   double s12 = (_G/(2*M_PI))*( -(x3-y3)/(pow((x2-y2),2) + pow((x3-y3),2))
                               +(x3+y3)/(pow((x2-y2),2) + pow((x3+y3),2))
-                              +(x3-y3-W)/(pow((x2-y2),2) + pow((x3-y3-W),2))
-                              -(x3+y3+W)/(pow((x2-y2),2) + pow((x3+y3+W),2)) );
+                              +(x3-y3-_dz)/(pow((x2-y2),2) + pow((x3-y3-_dz),2))
+                              -(x3+y3+_dz)/(pow((x2-y2),2) + pow((x3+y3+_dz),2)) );
 
   printf("x2: %f, x3: %f, y2: %f, y3: %f, W: %f, s: %f\n", x2, x3, y2, y3, W, s12);
   return s12;
