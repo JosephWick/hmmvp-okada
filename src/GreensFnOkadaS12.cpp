@@ -42,13 +42,13 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   double x2loc = idz%L;
   if (x2loc == 0){ // for when remainer is zero, location is at far end
     x2loc = _L/_dz;
-  } else if (x2loc < 1){
+  } else if (x2loc < 1.0){
     x2loc = 1;
   }
   double x3loc = idz%W;
   if (x3loc == 0){
     x3loc = _W/_dz;
-  } else if (x3loc < 1) {
+  } else if (x3loc < 1.0) {
     x3loc = 1;
   }
 
@@ -60,13 +60,13 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   double y2loc = jdz%L;
   if (y2loc == 2){
     y2loc = _L/_dz;
-  } else if (y2loc < 1){
+  } else if (y2loc < 1.0){
     y2loc = 1;
   }
   double y3loc = jdz%W;
   if (y2loc == 0){
     y3loc = _W/_dz;
-  } else if (y3loc < 1) {
+  } else if (y3loc < 1.0) {
     y2loc = 1;
   }
   double y2 = _x(2,y2loc);
