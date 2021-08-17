@@ -106,7 +106,7 @@ public:
 #include "GreensFnOkadaS12.cpp"
 #include "GreensFnOkadaS13.cpp"
 #include "GreensFnShear1312.cpp"
-#include "GreesnFnShear1213.cpp"
+#include "GreensFnShear1213.cpp"
 
 ImplGreensFn* NewGreensFn (const string& id, const KeyValueFile* kvf)
   throw (Exception)
@@ -127,6 +127,8 @@ ImplGreensFn* NewGreensFn (const string& id, const KeyValueFile* kvf)
     gf = new GreensFnShear1213();
   } else if (id == "shear1212") {
     gf = new GreensFnShear1212();
+  } else if (id == "shear1313") {
+    gf = new GreensFnShear1313
   } else if (id == "test") {
     gf = new GreensFnTest();
   } else {
