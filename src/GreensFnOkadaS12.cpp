@@ -32,7 +32,7 @@ private:
 inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   // i is the reeiver, j is the source
   // keep in mind that i/j are the cell number not location
-  printf("%d, %d", i, j);
+  printf("%d, %d\n", i, j);
   // args
   int idz = i*_dz;
   int jdz = j*_dz;
@@ -45,6 +45,8 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   double x3loc = idz%W;
   if (x3loc == 0)
     x3loc = _W/_dz;
+
+  printf("%f, %f\n", x2loc, x3loc);
 
   double x2 = (double)_x(2,x2loc) - 0.5*_dz;
   double x3 = (double)_x(3,x3loc) - 0.5*_dz;
