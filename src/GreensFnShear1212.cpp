@@ -30,17 +30,27 @@ private:
 };
 
 inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
-
   // i is the reeiver, j is the source
 
   // args
-  double x2 = (double)_x(2,i) + 0.5*_dz;
-  double x3 = (double)_x(3,i) - 0.5*_dz;
+  double x2 = (double)_x(2,i) - (double)_x(2,j);
+  double x3 = (double)_x(3,i) - (double)_x(3,j);
 
-  double y2 = _x(2,j);
-  double y3 = _x(3,j);
+  double D = (double)_x(3,i)*_dz;
 
-  double W = _dz;
+  double s1212 = (G/M_PI)*( atan((x3-D)/(x2+_L/2))
+                           -atan((x3-D)/(x2-_L/2))
+                           +atan((x3-D-_W)/(x2-_L/2))
+                           -atan((x3-D-_W)/(x2+_L/2))
+                           -atan((x3+D+_W)/(x2-_L/2))
+                           -atan((x3+D)/(x2+_l/2))
+                           +atan((x3+D)/(x2+_L/2))
+                           +atan((x3+D+_W)/(x2+_L/2)));
+
+   double p = (x3-(2*D+_W)/2)/_W;
+   double bc = -2*G*((x2/_L +0.5 >= 0)-(x2/_L -0.5 <= 0))*((p+0.5>=0)-(p-0.5>=0));
+
+   return s1212+bc;
 
 }
 
