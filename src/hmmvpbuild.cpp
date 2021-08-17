@@ -125,6 +125,8 @@ ImplGreensFn* NewGreensFn (const string& id, const KeyValueFile* kvf)
     gf = new GreensFnShear1312();
   } else if (id == "shear1213") {
     gf = new GreensFnShear1213();
+  } else if (id == "shear1212") {
+    gf = new GreensFnShear1212();
   } else if (id == "test") {
     gf = new GreensFnTest();
   } else {
