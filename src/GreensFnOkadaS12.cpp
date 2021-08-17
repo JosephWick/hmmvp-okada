@@ -29,7 +29,7 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   // i is the reeiver, j is the source
 
   // args
-  double x2 = (double)_x(2,i) + 0.5*_dz;
+  double x2 = (double)_x(2,i) - 0.5*_dz;
   double x3 = (double)_x(3,i) - 0.5*_dz;
 
   double y2 = _x(2,j);
