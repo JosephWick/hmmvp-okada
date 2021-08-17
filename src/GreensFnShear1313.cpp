@@ -48,7 +48,7 @@ inline double GreensFnShear1313::Eval(UInt i, UInt j) const {
                            +atan((x2-_L/2)/(x3+D+_W)) );
 
    double p = (x3-(2*D+_W)/2)/_W;
-   double bc = -2*G*((x2/_L +0.5 >= 0)-(x2/_L -0.5 <= 0))*((p+0.5>=0)-(p-0.5>=0));
+   double bc = -2*_G*((x2/_L +0.5 >= 0)-(x2/_L -0.5 <= 0))*((p+0.5>=0)-(p-0.5>=0));
 
    return s1313+bc;
 
