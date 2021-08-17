@@ -108,6 +108,7 @@ public:
 #include "GreensFnShear1312.cpp"
 #include "GreensFnShear1213.cpp"
 #include "GreensFnShear1313.cpp"
+#include "GreensFnShear1212.cpp"
 
 ImplGreensFn* NewGreensFn (const string& id, const KeyValueFile* kvf)
   throw (Exception)
