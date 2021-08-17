@@ -32,12 +32,14 @@ private:
 inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   // i is the reeiver, j is the source
   // keep in mind that i/j are the cell number not location
-  printf("%d, %d\n", i, j);
+  printf("ij: %d, %d\n", i, j);
   // args
   int idz = i*_dz;
   int jdz = j*_dz;
   int L = _L;
   int W = _W;
+
+  printf("idz: %d, jdz: %d", idz, jdz);
 
   double x2loc = idz%L;
   if (x2loc == 0){ // for when remainer is zero, location is at far end
