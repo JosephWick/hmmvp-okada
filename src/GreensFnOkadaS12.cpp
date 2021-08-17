@@ -56,7 +56,7 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
     x3loc = 1;
   }
 
-  printf("%d, %d\n", x2loc, x3loc);
+  printf("x2loc: %d, x3loc: %d\n", x2loc, x3loc);
 
   double x2 = (double)_x(2,x2loc) - 0.5*_dz;
   double x3 = (double)_x(3,x3loc) - 0.5*_dz;
@@ -75,6 +75,7 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   if (y3loc < 1) {
     y2loc = 1;
   }
+  printf("y2loc: %d, y3loc: %d\n", y2loc, y3loc);
   double y2 = _x(2,y2loc);
   double y3 = _x(3,y3loc);
 
