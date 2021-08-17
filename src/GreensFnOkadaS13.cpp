@@ -42,7 +42,7 @@ inline double GreensFnOkadaS13::Eval (UInt i, UInt j) const {
                               +(x2-y2)/(pow((x2-y2),2) + pow((x3+y3+W),2))
                               );
 
-  //printf("x3: %f, y3: %f, s12: %f\n", x3, y3, s13);
+  printf("i: %d, j: %d, s12: %f\n", i, j, s13);
 
   return s13;
 }
