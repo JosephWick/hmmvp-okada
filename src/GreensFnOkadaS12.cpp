@@ -34,13 +34,16 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   // keep in mind that i/j are the cell number not location
 
   // args
-  double x2loc = _L%((double)i*_dz);
-  double x3loc = _W%(i*_dz);
+  double idz = i*_dz;
+  double jdz = j*_dz;
+
+  double x2loc = _L%(idz);
+  double x3loc = _W%(idz);
   double x2 = (double)_x(2,x2loc) - 0.5*_dz;
   double x3 = (double)_x(3,x3loc) - 0.5*_dz;
 
-  double y2loc = _L%(j*_dz);
-  double y3loc = _W%(j*_dz);
+  double y2loc = _L%(jdz);
+  double y3loc = _W%(jdz);
   double y2 = _x(2,y2loc);
   double y3 = _x(3,y3loc);
 
