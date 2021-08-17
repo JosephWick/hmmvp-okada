@@ -30,9 +30,11 @@ inline double GreensFnOkadaS13::Eval (UInt i, UInt j) const {
   // args
   double x2 = (double)_x(2,i) - 0.5*_dz;
   double x3 = (double)_x(3,i) - 0.5*_dz;
+  printf("x2: %f, x3: %f", x2, x3);
 
   double y2 = _x(2,j);
   double y3 = _x(3,j);
+  printf("y2: %f, y3: %f", y2, y3);
 
   double W = _dz;
 
@@ -42,7 +44,7 @@ inline double GreensFnOkadaS13::Eval (UInt i, UInt j) const {
                               +(x2-y2)/(pow((x2-y2),2) + pow((x3+y3+W),2))
                               );
 
-  printf("x3: %f, y3: %f, s12: %f\n", x3, y3, s13);
+  printf("s12: %f\n", s13);
 
   return s13;
 }
