@@ -36,9 +36,11 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   // args
   int idz = i*_dz;
   int jdz = j*_dz;
+  int L = _L;
+  int W = _W;
 
-  double x2loc = (int)_L%(idz);
-  double x3loc = (int)_W%(idz);
+  double x2loc = L%(idz);
+  double x3loc = W%(idz);
   double x2 = (double)_x(2,x2loc) - 0.5*_dz;
   double x3 = (double)_x(3,x3loc) - 0.5*_dz;
 
