@@ -64,13 +64,15 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   double y2loc = (jdz%L)/_dz;
   if (y2loc == 2){
     y2loc = _L/_dz;
-  } else if (y2loc < 1.0){
+  }
+  if (y2loc < 1.0){
     y2loc = 1;
   }
   double y3loc = (jdz%W)/_dz;
   if (y2loc == 0){
     y3loc = _W/_dz;
-  } else if (y3loc < 1.0) {
+  }
+  if (y3loc < 1.0) {
     y2loc = 1;
   }
   double y2 = _x(2,y2loc);
