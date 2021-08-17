@@ -19,6 +19,10 @@ private:
   // size of blocks
   double _dz;
 
+  // mesh size
+  double _L; //x2 direction
+  double _W; //x3 direction
+
  // rigidity
  double _G;
 
@@ -27,13 +31,18 @@ private:
 
 inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   // i is the reeiver, j is the source
+  // keep in mind that i/j are the cell number not location
 
   // args
-  double x2 = (double)_x(2,i) - 0.5*_dz;
-  double x3 = (double)_x(3,i) - 0.5*_dz;
+  double x2loc = _L%(i*_dz);
+  double x3loc = _W%(i*_dz);
+  double x2 = (double)_x(2,x2loc) - 0.5*_dz;
+  double x3 = (double)_x(3,x2loc) - 0.5*_dz;
 
-  double y2 = _x(2,j);
-  double y3 = _x(3,j);
+  double y2loc = _L*(j%_dz);
+  double y3loc = _W*(j%_dz);
+  double y2 = _x(2,y2loc);
+  double y3 = _x(3,y2loc);
 
   double W = _dz;
 
@@ -60,9 +69,11 @@ void GreensFnOkadaS12::Init(const KeyValueFile* kvf) throw (Exception) {
   kvf->GetDouble("G", _G);
   if (_G <=0) throw Exception("G must be greater than 0.");
 
-  double t;
-  kvf->GetDouble("tol", t);
-  printf("tol: %f", t);
+  kvf->GetDouble("W", _W);
+  if (_W <= 0) throw Exception("W must be greater than 0.");
+
+  kvf->GetDouble("L", _L);
+  if (_L <= 0) throw Exception("L must be greater than 0.");
 
 }
 
