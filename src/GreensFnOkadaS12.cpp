@@ -39,7 +39,7 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   int L = _L;
   int W = _W;
 
-  printf("idz: %d, jdz: %d", idz, jdz);
+  printf("idz: %d, jdz: %d\n", idz, jdz);
 
   double x2loc = idz%L;
   if (x2loc == 0){ // for when remainer is zero, location is at far end
