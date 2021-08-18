@@ -33,7 +33,8 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   // i is the reeiver, j is the source
   // keep in mind that i/j are the cell number not location
   //printf("ij: %d, %d\n", i, j);
-  // args
+
+  // number of cells in either dimension
   int cellsL = _L/_dz;
   int cellsW = _W/_dz;
 
@@ -42,12 +43,13 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   int x2loc;
   if (cellsL > 0)
     x2loc = (i%cellsL);
+    if (x2loc == 0) x2loc = cellsL;
   else
     x2loc = 1;
+
   int x3loc;
   if (cellsW > 0)
     x3loc = ceil(i/cellsW);
-    if (x3loc == 0) x3loc = cellsW;
   else
     x3loc = 1;
 
@@ -59,12 +61,13 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   double y2loc;
   if (cellsL > 0)
     y2loc = j%cellsL;
+    if (y2loc == 0) y2loc = cellsl;
   else
     y2loc = 1;
+
   double y3loc;
   if (cellsW > 0)
     y3loc = ceil(j/cellsW);
-    if (y3loc == 0) y3loc = cellsW;
   else
     y3loc = 1;
 
