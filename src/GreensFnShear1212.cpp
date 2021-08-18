@@ -60,14 +60,12 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
   printf("i: %d, j: %d, cellsL: %d, cellsW: %d\n", i, j, cellsL, cellsW);
 
   // receiver loc
-  x2loc;
   if (cellsL > 0) {
     x2loc = (i%cellsL);
     if (x2loc == 0) x2loc = cellsL;
   } else {
     x2loc = 1;
   }
-   x3loc;
   if (cellsL > 0)
     x3loc = ceil((double)i/cellsL);
   else
@@ -76,14 +74,12 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
   printf("x2loc: %d, x3loc: %d\n", x2loc, x3loc);
 
   // src loc
-  y2loc;
   if (cellsL > 0) {
     y2loc = j%cellsL;
     if (y2loc == 0) y2loc = cellsL;
   } else {
     y2loc = 1;
   }
-  y3loc;
   if (cellsL > 0)
     y3loc = ceil((double)j/cellsL);
   else
