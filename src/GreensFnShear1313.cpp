@@ -67,7 +67,7 @@ inline double GreensFnShear1313::Eval(UInt i, UInt j) const {
    double p = (x3-(2*D+_W)/2)/_W;
    double bc = -2*_G*((x2/_L +0.5 >= 0)-(x2/_L -0.5 <= 0))*((p+0.5>=0)-(p-0.5>=0));
 
-   printf("D: %f, L: %f, W: %f, x2: %f, x3: %f, s: %f\n", D, _L, _W, x2, x3, s1313+bc);
+   //printf("D: %f, L: %f, W: %f, x2: %f, x3: %f, s: %f\n", D, _L, _W, x2, x3, s1313+bc);
 
    return s1313+bc;
 
