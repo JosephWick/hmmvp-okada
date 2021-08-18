@@ -38,7 +38,7 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   int cellsL = _L/_dz;
   int cellsW = _W/_dz;
 
-  printf("\ni: %d, j: %d, cellsL: %d, cellsW: %d\n", i, j, cellsL, cellsW);
+  //printf("\ni: %d, j: %d, cellsL: %d, cellsW: %d\n", i, j, cellsL, cellsW);
 
   int x2loc;
   if (cellsL > 0) {
@@ -54,7 +54,7 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   else
     x3loc = i;
 
-  printf("x2loc: %d, x3loc: %d\n", x2loc, x3loc);
+  //printf("x2loc: %d, x3loc: %d\n", x2loc, x3loc);
 
   double x2 = (double)_x(2,x2loc) - 0.5*_dz;
   double x3 = (double)_x(3,x3loc) + 0.5*_dz;
@@ -73,7 +73,7 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   else
     y3loc = j;
 
-  printf("y2loc: %d, y3loc: %d\n", y2loc, y3loc);
+  //printf("y2loc: %d, y3loc: %d\n", y2loc, y3loc);
   double y2 = _x(2,y2loc);
   double y3 = _x(3,y3loc);
 
