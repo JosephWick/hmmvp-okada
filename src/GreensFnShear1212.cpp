@@ -73,7 +73,7 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
   else
     x3loc = i;
 
-  //printf("x2loc: %d, x3loc: %d\n", x2loc, x3loc);
+  printf("x2loc: %d, x3loc: %d\n", x2loc, x3loc);
 
   // src loc
   y2loc;
