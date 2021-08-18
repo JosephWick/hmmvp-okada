@@ -56,7 +56,7 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   cellsL = _L/_dz;
   cellsW = _W/_dz;
 
-  //printf("\ni: %d, j: %d, cellsL: %d, cellsW: %d\n", i, j, cellsL, cellsW);
+  printf("i: %d, j: %d, cellsL: %d, cellsW: %d\n", i, j, cellsL, cellsW);
 
   // receiver loc
   x2loc;
