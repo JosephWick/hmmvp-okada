@@ -36,65 +36,17 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
 
   // declaration
 
-  // number of cells in either dimension
-  int cellsL;
-  int cellsW;
-
-  // positions within mesh
-  int x2loc;
-  int x3loc;
-  int y2loc;
-  int y3loc;
-
   // inputs for kernel equation
-  double x2;
+  double x2; // receiver
   double x3;
-  double y2;
+  double y2; // src
   double y3;
 
-  // get num cells
-  cellsL = _L/_dz;
-  cellsW = _W/_dz;
-
-  //printf("i: %d, j: %d, cellsL: %d, cellsW: %d\n", i, j, cellsL, cellsW);
-
-  // receiver loc
-  x2loc;
-  if (cellsL > 0) {
-    x2loc = (i%cellsL);
-    if (x2loc == 0) x2loc = cellsL;
-  } else {
-    x2loc = 1;
-  }
-   x3loc;
-  if (cellsL > 0)
-    x3loc = ceil((double)i/cellsL);
-  else
-    x3loc = i;
-
-  //printf("x2loc: %d, x3loc: %d\n", x2loc, x3loc);
-
-  // src loc
-  y2loc;
-  if (cellsL > 0) {
-    y2loc = j%cellsL;
-    if (y2loc == 0) y2loc = cellsL;
-  } else {
-    y2loc = 1;
-  }
-  y3loc;
-  if (cellsL > 0)
-    y3loc = ceil((double)j/cellsL);
-  else
-    y3loc = j;
-
-  //printf("y2loc: %d, y3loc: %d\n", y2loc, y3loc);
-
-  // for kernel
-  x2 = (double)_x(2,x2loc) - 0.5*_dz;
-  x3 = (double)_x(3,x3loc) + 0.5*_dz;
-  y2 = (double)_x(2,y2loc);
-  y3 = (double)_x(3,y3loc);
+  // for kernel; receiver relative to src
+  y2 = (double)_x(2,i);
+  y3 = (double)_x(3,i);
+  x2 = (double)_x(2,j) - 0.5*_dz;
+  x3 = (double)_x(3,j) + 0.5*_dz;
 
   // W replaced here with _dz
   double s12 = (_G/(2*M_PI))*( -(x3-y3)/(pow((x2-y2),2) + pow((x3-y3),2))
