@@ -38,7 +38,7 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   int cellsL = _L/_dz;
   int cellsW = _W/_dz;
 
-  printf("cellsL: %d, cellsW: %d\n", cellsL, cellsW);
+  printf("i: %d, j: %d, cellsL: %d, cellsW: %d\n", i, j, cellsL, cellsW);
 
   int x2loc;
   if (cellsL > 0)
