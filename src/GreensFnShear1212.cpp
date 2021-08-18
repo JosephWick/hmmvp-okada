@@ -26,6 +26,9 @@ private:
   // rigidity
   double _G;
 
+  // depth offset
+  double _trans;
+
   double Eval(UInt i, UInt j) const;
 };
 
@@ -46,9 +49,9 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
   y2 = (double)_x(2,i);
   y3 = (double)_x(3,i);
   x2 = (double)_x(2,j) - 0.5*_dz - y2;
-  x3 = (double)_x(3,j) + 0.5*_dz - y3;
+  x3 = (double)_x(3,j) - 0.5*_dz - y3;
 
-  double D = (double)_x(3,i);
+  double D = (double)_x(3,i) + _trans;
 
   double s1212 = (_G/M_PI)*( atan((x3-D)/(x2+_L/2))
                            -atan((x3-D)/(x2-_L/2))
@@ -87,6 +90,10 @@ void GreensFnShear1212::Init(const KeyValueFile* kvf) throw (Exception) {
 
   kvf->GetDouble("L", _L);
   if (_L <= 0) throw Exception("L must be greater than 0.");
+
+  kvf->GetDouble("transition", _trans);
+  if (_trans < 0) throw Exception("transition depth should be positive");
+
 }
 
 bool GreensFnShear1212::
