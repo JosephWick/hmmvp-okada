@@ -19,6 +19,10 @@ private:
   // size of blocks
   double _dz;
 
+  // mesh size
+  double _L; //x2 direction
+  double _W; //x3 direction
+
   // rigidity
   double _G;
 
