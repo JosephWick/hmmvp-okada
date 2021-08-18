@@ -47,7 +47,7 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
   int y3loc;
 
   // inputs for kernel equation
-  double x2; // receiver 
+  double x2; // receiver
   double x3;
   double y2; // src
   double y3;
@@ -109,6 +109,8 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
 
    double p = (x3-(2*D+_W)/2)/_W;
    double bc = -2*_G*((x2/_L +0.5 >= 0)-(x2/_L -0.5 <= 0))*((p+0.5>=0)-(p-0.5>=0));
+
+   printf("D: %f, L: %f, W: %f, x2: %f, x3: %f\n, s: %f", D, _L, _W, x2, x3, s1212+bc);
 
    return s1212+bc;
 
