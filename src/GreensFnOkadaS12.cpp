@@ -19,10 +19,6 @@ private:
   // size of blocks
   double _dz;
 
-  // mesh size
-  double _L; //x2 direction
-  double _W; //x3 direction
-
  // rigidity
  double _G;
 
@@ -72,12 +68,6 @@ void GreensFnOkadaS12::Init(const KeyValueFile* kvf) throw (Exception) {
 
   kvf->GetDouble("G", _G);
   if (_G <=0) throw Exception("G must be greater than 0.");
-
-  kvf->GetDouble("W", _W);
-  if (_W <= 0) throw Exception("W must be greater than 0.");
-
-  kvf->GetDouble("L", _L);
-  if (_L <= 0) throw Exception("L must be greater than 0.");
 
 }
 
