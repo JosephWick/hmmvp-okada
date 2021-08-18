@@ -118,6 +118,12 @@ void GreensFnOkadaS13::Init(const KeyValueFile* kvf) throw (Exception) {
   kvf->GetDouble("G", _G);
   if (_G <=0) throw Exception("G must be greater than 0.");
 
+  kvf->GetDouble("W", _W);
+  if (_W <= 0) throw Exception("W must be greater than 0.");
+
+  kvf->GetDouble("L", _L);
+  if (_L <= 0) throw Exception("L must be greater than 0.");
+
 }
 
 bool GreensFnOkadaS13::
