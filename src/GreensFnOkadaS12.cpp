@@ -56,7 +56,7 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   double x3 = (double)_x(3,x3loc) + 0.5*_dz;
 
   double y2loc;
-  if (cellL > 0)
+  if (cellsL > 0)
     y2loc = j%cellsL;
   else
     y2loc = 1;
