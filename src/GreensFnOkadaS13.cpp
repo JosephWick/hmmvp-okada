@@ -26,18 +26,73 @@ private:
 };
 
 inline double GreensFnOkadaS13::Eval (UInt i, UInt j) const {
+  // i is the reiver, j is the source
+  // keep in mind that i/j are the cell number not location
+  //printf("ij: %d, %d\n", i, j);
 
-  // args
-  double x2 = (double)_x(2,i) - 0.5*_dz;
-  double x3 = (double)_x(3,i) - 0.5*_dz;
-  //printf("x2: %f, x3: %f, ", x2, x3);
+  // declaration
 
-  double y2 = _x(2,j);
-  double y3 = _x(3,j);
-  //printf("y2: %f, y3: %f, ", y2, y3);
+  // number of cells in either dimension
+  int cellsL;
+  int cellsW;
+
+  // positions within mesh
+  int x2loc;
+  int x3loc;
+  int y2loc;
+  int y3loc;
+
+  // inputs for kernel equation
+  double x2;
+  double x3;
+  double y2;
+  double y3;
+
+  // get num cells
+  cellsL = _L/_dz;
+  cellsW = _W/_dz;
+
+  //printf("i: %d, j: %d, cellsL: %d, cellsW: %d\n", i, j, cellsL, cellsW);
+
+  // receiver loc
+  x2loc;
+  if (cellsL > 0) {
+    x2loc = (i%cellsL);
+    if (x2loc == 0) x2loc = cellsL;
+  } else {
+    x2loc = 1;
+  }
+   x3loc;
+  if (cellsL > 0)
+    x3loc = ceil((double)i/cellsL);
+  else
+    x3loc = i;
+
+  //printf("x2loc: %d, x3loc: %d\n", x2loc, x3loc);
+
+  // src loc
+  y2loc;
+  if (cellsL > 0) {
+    y2loc = j%cellsL;
+    if (y2loc == 0) y2loc = cellsL;
+  } else {
+    y2loc = 1;
+  }
+  y3loc;
+  if (cellsL > 0)
+    y3loc = ceil((double)j/cellsL);
+  else
+    y3loc = j;
+
+  //printf("y2loc: %d, y3loc: %d\n", y2loc, y3loc);
+
+  // for kernel
+  x2 = (double)_x(2,x2loc) - 0.5*_dz;
+  x3 = (double)_x(3,x3loc) + 0.5*_dz;
+  y2 = (double)_x(2,y2loc);
+  y3 = (double)_x(3,y3loc);
 
   double W = _dz;
-
   double s13 = (_G/(2*M_PI))*( (x2-y2)/(pow((x2-y2),2) + pow((x3-y3),2))
                               -(x2-y2)/(pow((x2-y2),2) - pow((x3+y3),2))
                               -(x2-y2)/(pow((x2-y2),2) + pow((x3-y3-W),2))
