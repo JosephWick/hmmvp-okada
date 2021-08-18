@@ -36,63 +36,19 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
 
   // declaration
 
-  // number of cells in either dimension
-  int cellsL;
-  int cellsW;
-
-  // positions within mesh
-  int x2loc; //receiver
-  int x3loc;
-  int y2loc; // src
-  int y3loc;
-
   // inputs for kernel equation
   double x2; // receiver
   double x3;
   double y2; // src
   double y3;
-  double D;  // depth of receiver
 
-  // get num cells
-  cellsL = _L/_dz;
-  cellsW = _W/_dz;
+  // for kernel; receiver relative to src
+  y2 = (double)_x(2,i);
+  y3 = (double)_x(3,i);
+  x2 = (double)_x(2,j) - 0.5*_dz - y2;
+  x3 = (double)_x(3,j) + 0.5*_dz - y3;
 
-  printf("i: %d, j: %d, cellsL: %d, cellsW: %d\n", i, j, cellsL, cellsW);
-
-  // receiver loc
-  if (cellsL > 0) {
-    x2loc = (i%cellsL);
-    if (x2loc == 0) x2loc = cellsL;
-  } else {
-    x2loc = 1;
-  }
-  if (cellsL > 0)
-    x3loc = ceil((double)i/cellsL);
-  else
-    x3loc = i;
-
-  printf("x2loc: %d, x3loc: %d\n", x2loc, x3loc);
-
-  // src loc
-  if (cellsL > 0) {
-    y2loc = j%cellsL;
-    if (y2loc == 0) y2loc = cellsL;
-  } else {
-    y2loc = 1;
-  }
-  if (cellsL > 0)
-    y3loc = ceil((double)j/cellsL);
-  else
-    y3loc = j;
-
-  //printf("y2loc: %d, y3loc: %d\n", y2loc, y3loc);
-
-  // for kernel
-  y2 = (double)_x(2,y2loc);
-  y3 = (double)_x(3,y3loc);
-  x2 = (double)_x(2,x2loc) - 0.5*_dz - y2;
-  x3 = (double)_x(3,x3loc) + 0.5*_dz - y3;
-  D = (double)_x(3,i);
+  double D = (double)_x(3,i);
 
   double s1212 = (_G/M_PI)*( atan((x3-D)/(x2+_L/2))
                            -atan((x3-D)/(x2-_L/2))
@@ -105,8 +61,6 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
 
    double p = (x3-(2*D+_W)/2)/_W;
    double bc = -2*_G*((x2/_L +0.5 >= 0)-(x2/_L -0.5 <= 0))*((p+0.5>=0)-(p-0.5>=0));
-
-   printf("D: %f, L: %f, W: %f, x2: %f, x3: %f, s: %f\n", D, _L, _W, x2, x3, s1212+bc);
 
    return s1212+bc;
 
