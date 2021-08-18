@@ -50,9 +50,9 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
 
   int x3loc;
   if (cellsW > 0)
-    x3loc = ceil((double)i/cellsW);
+    x3loc = ceil((double)i/cellsL);
   else
-    x3loc = 1;
+    x3loc = i;
 
   printf("x2loc: %d, x3loc: %d\n", x2loc, x3loc);
 
@@ -69,9 +69,9 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
 
   double y3loc;
   if (cellsW > 0)
-    y3loc = ceil((double)j/cellsW);
+    y3loc = ceil((double)j/cellsL);
   else
-    y3loc = 1;
+    y3loc = j;
 
   printf("y2loc: %d, y3loc: %d\n", y2loc, y3loc);
   double y2 = _x(2,y2loc);
