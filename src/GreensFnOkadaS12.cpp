@@ -67,7 +67,7 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
 
   double y3loc;
   if (cellsW > 0)
-    y3loc = ceil(j/cellsW);
+    y3loc = ceil((double)j/cellsW);
   else
     y3loc = 1;
 
