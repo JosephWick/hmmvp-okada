@@ -30,7 +30,7 @@ private:
 };
 
 inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
-  // i is the reeiver, j is the source
+  // i is the reiver, j is the source
   // keep in mind that i/j are the cell number not location
   //printf("ij: %d, %d\n", i, j);
 
@@ -56,7 +56,7 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   cellsL = _L/_dz;
   cellsW = _W/_dz;
 
-  printf("i: %d, j: %d, cellsL: %d, cellsW: %d\n", i, j, cellsL, cellsW);
+  //printf("i: %d, j: %d, cellsL: %d, cellsW: %d\n", i, j, cellsL, cellsW);
 
   // receiver loc
   x2loc;
@@ -102,7 +102,8 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
                               +(x3-y3-_dz)/(pow((x2-y2),2) + pow((x3-y3-_dz),2))
                               -(x3+y3+_dz)/(pow((x2-y2),2) + pow((x3+y3+_dz),2)) );
 
-  printf("x2: %f, x3: %f, y2: %f, y3: %f, W: %f, s: %f\n", x2, x3, y2, y3, _dz, s12);
+  //printf("x2: %f, x3: %f, y2: %f, y3: %f, W: %f, s: %f\n", x2, x3, y2, y3, _dz, s12);
+
   return s12;
 }
 
