@@ -47,10 +47,11 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
   int y3loc;
 
   // inputs for kernel equation
-  double x2;
+  double x2; // receiver 
   double x3;
-  double y2;
+  double y2; // src
   double y3;
+  double D;  // depth of receiver
 
   // get num cells
   cellsL = _L/_dz;
@@ -95,9 +96,7 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
   y3 = (double)_x(3,y3loc);
   x2 = (double)_x(2,x2loc) - 0.5*_dz - y2;
   x3 = (double)_x(3,x3loc) + 0.5*_dz - y3;
-
-
-  double D = (double)_x(3,i)*_dz;
+  D = (double)_x(3,x3loc);
 
   double s1212 = (_G/M_PI)*( atan((x3-D)/(x2+_L/2))
                            -atan((x3-D)/(x2-_L/2))
