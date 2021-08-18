@@ -106,7 +106,7 @@ inline double GreensFnShear1213::Eval (UInt i, UInt j) const {
                                 +log( pow((x2+_L/2),2) + pow((x3-D),2) )
                                 +log( pow((x2-_L/2),2) + pow((x3+D),2) )
                                 -log( pow((x2+_L/2),2) + pow((x3+D),2) ) );
-  printf("D: %f, L: %f, W: %f, x2: %f, x3: %f\n, s: %f", D, _L, _W, x2, x3, s1213);
+  printf("D: %f, L: %f, W: %f, x2: %f, x3: %f\n, s: %f\n", D, _L, _W, x2, x3, s1213);
 
   return s1213;
 }
