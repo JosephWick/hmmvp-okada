@@ -53,7 +53,7 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   //printf("x2: %f, x3: %f, y2: %f, y3: %f, W: %f, s: %f\n", x2, x3, y2, y3, _dz, s12);
 
   if (isinf(s12)){
-    s13 = -999;
+    s12 = -999;
     if (i<400 && j>400) printf("inf at i=%d, j=%d\n", i, j);
   }
 
