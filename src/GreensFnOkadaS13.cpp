@@ -51,7 +51,7 @@ inline double GreensFnOkadaS13::Eval (UInt i, UInt j) const {
                               +(x2-y2)/(pow((x2-y2),2) + pow((x3+y3+W),2))
                               );
 
-  if (isinf(s13)){
+  if (isinf(s13) && i <400 && j>400){
     printf("inf at i=%d, j=%d\n", i, j);
     s13 = -999;
   }
