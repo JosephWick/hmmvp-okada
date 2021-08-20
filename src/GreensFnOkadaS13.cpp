@@ -52,7 +52,7 @@ inline double GreensFnOkadaS13::Eval (UInt i, UInt j) const {
                               );
 
   if (isinf(s13)){
-    printf("i\n");
+    printf("inf at i=%d, j=%d\n", i, j);
     s13 = -999;
   }
 
