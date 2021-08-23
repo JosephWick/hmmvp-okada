@@ -54,7 +54,8 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
 
   if (isinf(s12)){
     s12 = -999;
-    /*if (i<400 && j>400)*/ printf("inf at i=%d, j=%d\n", i, j);
+    /*if (i<400 && j>400)*/
+    printf("inf at i=%d, j=%d\n", i, j);
   }
 
   return s12;
