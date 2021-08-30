@@ -15,6 +15,7 @@ public:
 private:
   // geomtry
   Matd _x;
+  Matd _y;
 
   // size of blocks
   double _dz;
@@ -39,10 +40,10 @@ inline double GreensFnOkadaS13::Eval (UInt i, UInt j) const {
   double y3;
 
   // for kernel; receiver relative to src
-  y2 = (double)_x(2,i);
-  y3 = (double)_x(3,i);
-  x2 = (double)_x(2,j) - 0.5*_dz;
-  x3 = (double)_x(3,j) + 0.5*_dz;
+  y2 = (double)_y(2,i);
+  y3 = (double)_y(3,i);
+  x2 = (double)_x(2,j);
+  x3 = (double)_x(3,j);
 
   double W = _dz;
   double s13 = (_G/(2*M_PI))*( (x2-y2)/(pow((x2-y2),2) + pow((x3-y3),2))
@@ -67,6 +68,10 @@ void GreensFnOkadaS13::Init(const KeyValueFile* kvf) throw (Exception) {
   if (!kvf->GetMatd("X", m)) throw Exception("Missing X.");
   _x = *m;
   if (_x.Size(1) != 3) throw Exception("X must be 3xN.");
+
+  if (!kvf->GetMatd("Y", m)) throw Exception("Missing Y.");
+  _y = *m;
+  if (_y.Size(1) != 3) throw Exception("Y must be 3xN.");
 
   kvf->GetDouble("dz", _dz);
   if (_dz <=0) throw Exception("dz must be greater than 0.");

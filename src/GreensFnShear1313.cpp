@@ -15,6 +15,7 @@ public:
 private:
   // geometry
   Matd _x;
+  Matd _y;
 
   // size of blocks
   double _dz;
@@ -48,10 +49,10 @@ inline double GreensFnShear1313::Eval(UInt i, UInt j) const {
   double D; // receiver depth
 
   // for kernel; receiver relative to src
-  y2 = (double)_x(2,i);
-  y3 = (double)_x(3,i);
-  x2 = (double)_x(2,j) - 0.5*_dz - y2;
-  x3 = (double)_x(3,j) + 0.5*_dz - y3;
+  y2 = (double)_y(2,i);
+  y3 = (double)_y(3,i);
+  x2 = (double)_x(2,j) - y2;
+  x3 = (double)_x(3,j) - y3;
 
   D = (double)_x(3,i); - 0.5*_dz + _trans;
 
@@ -79,6 +80,10 @@ void GreensFnShear1313::Init(const KeyValueFile* kvf) throw (Exception) {
   if (!kvf->GetMatd("X", m)) throw Exception("Missing X.");
   _x = *m;
   if (_x.Size(1) != 3) throw Exception("X must be 3xN.");
+
+  if (!kvf->GetMatd("Y", m)) throw Exception("Missing Y.");
+  _y = *m;
+  if (_y.Size(1) != 3) throw Exception("Y must be 3xN.");
 
   kvf->GetDouble("dz", _dz);
   if (_dz <=0) throw Exception("dz must be greater than 0.");
