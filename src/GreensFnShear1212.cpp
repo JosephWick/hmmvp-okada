@@ -15,7 +15,7 @@ public:
 private:
   // geometry
   Matd _x;
-  Matd _y;
+  //Matd _y;
 
   // size of blocks
   double _dz;
@@ -36,7 +36,7 @@ private:
 inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
   // i is the reiver, j is the source
   // keep in mind that i/j are the cell number not location
-  printf("ij: %d, %d\n", i, j);
+  //printf("ij: %d, %d\n", i, j);
 
   // declaration
 
@@ -80,9 +80,9 @@ void GreensFnShear1212::Init(const KeyValueFile* kvf) throw (Exception) {
   _x = *m;
   if (_x.Size(1) != 3) throw Exception("X must be 3xN.");
 
-  if (!kvf->GetMatd("Y", mm)) throw Exception("Missing Y.");
-  _y = *mm;
-  if (_y.Size(1) != 3) throw Exception("Y must be 3xN.");
+  //if (!kvf->GetMatd("Y", mm)) throw Exception("Missing Y.");
+  //_y = *mm;
+  //if (_y.Size(1) != 3) throw Exception("Y must be 3xN.");
 
   kvf->GetDouble("dz", _dz);
   if (_dz <=0) throw Exception("dz must be greater than 0.");
