@@ -414,8 +414,11 @@ int main (int argc, char** argv) {
     } else {
       printf("... Computing spatial decomposition.\n");
       hd = gf->ComputeHd(in.eta);
+      printf("a\n");
       if (!in.write_hd_filename.empty())
+        printf("b\n");
         try {
+          printf("c\n");
           WriteHd(hd, in.write_hd_filename);
         } catch (const FileException& e) {
           fprintf(stderr, "Could not write %s.\n",
@@ -423,6 +426,7 @@ int main (int argc, char** argv) {
           delete gf;
           return Finalize(-1);
         }
+        printf("d\n");
     }
   }
 
