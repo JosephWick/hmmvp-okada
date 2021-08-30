@@ -15,7 +15,7 @@ public:
 private:
   // geometry
   Matd _x;
-  //Matd _y;
+  Matd _y;
 
   // size of blocks
   double _dz;
