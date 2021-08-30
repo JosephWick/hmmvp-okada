@@ -26,7 +26,7 @@ private:
 };
 
 inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
-  // i is the reiver, j is the source
+  // i is the receiver, j is the source
   // keep in mind that i/j are the cell number not location
   //printf("ij: %d, %d\n", i, j);
 
