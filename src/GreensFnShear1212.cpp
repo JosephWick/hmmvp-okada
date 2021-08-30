@@ -49,8 +49,8 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
   // for kernel; receiver relative to src
   y2 = (double)_y(2,i);
   y3 = (double)_y(3,i);
-  x2 = (double)_x(2,j) - y2;
-  x3 = (double)_x(3,j) - y3;
+  x2 = (double)_x(2,j);
+  x3 = (double)_x(3,j);
 
   double D = (double)_x(3,i) + _trans;
 
