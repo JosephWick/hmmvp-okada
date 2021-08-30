@@ -413,6 +413,7 @@ int main (int argc, char** argv) {
       }
     } else {
       printf("... Computing spatial decomposition.\n");
+      printf("0\n");
       hd = gf->ComputeHd(in.eta);
       printf("a\n");
       if (!in.write_hd_filename.empty())
