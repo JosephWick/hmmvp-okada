@@ -80,7 +80,7 @@ void GreensFnShear1212::Init(const KeyValueFile* kvf) throw (Exception) {
   _x = *m;
   if (_x.Size(1) != 3) throw Exception("X must be 3xN.");
 
-  if (!kvf->GetMatd("Y", m)) throw Exception("Missing Y.");
+  if (!kvf->GetMatd("Y", mm)) throw Exception("Missing Y.");
   _y = *mm;
   if (_y.Size(1) != 3) throw Exception("Y must be 3xN.");
 
