@@ -838,13 +838,10 @@ void WriteHd (const Hd* hd, const std::string& hd_filename)
 Hd* NewHd (const std::string& hd_filename)
   throw (Exception, FileException)
 {
-  printf("hda\n");
   FILE* fid = fopen(hd_filename.c_str(), "rb");
-  printf("hdb\n");
   if (!fid) throw FileException();
-  printf("hdc\n");
+
   HdData* hd = new HdData();
-  printf("hdd\n");
   try {
     UInt n;
     read(&n, 1, fid);
