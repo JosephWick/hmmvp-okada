@@ -34,9 +34,9 @@ inline double GreensFnShear1313::Eval(UInt i, UInt j) const {
   // declaration
 
   // inputs for kernel equation
-  double x2; // receiver
+  double x2; // receiver (center)
   double x3;
-  double y2; // src
+  double y2; // src (edge)
   double y3;
 
   double L; // block len x2
