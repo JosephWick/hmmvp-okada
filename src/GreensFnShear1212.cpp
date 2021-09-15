@@ -55,17 +55,17 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
 
   double D = (double)_x(3,i) + _trans;
 
-  double s1212 = (_G/M_PI)*( atan((x3-D)/(x2+_L/2))
-                           -atan((x3-D)/(x2-_L/2))
-                           +atan((x3-D-_W)/(x2-_L/2))
-                           -atan((x3-D-_W)/(x2+_L/2))
-                           -atan((x3+D+_W)/(x2-_L/2))
-                           -atan((x3+D)/(x2+_L/2))
-                           +atan((x3+D)/(x2+_L/2))
-                           +atan((x3+D+_W)/(x2+_L/2)));
+  double s1212 = (_G/M_PI)*( atan((x3-D)/(x2+L/2))
+                           -atan((x3-D)/(x2-L/2))
+                           +atan((x3-D-W)/(x2-L/2))
+                           -atan((x3-D-W)/(x2+L/2))
+                           -atan((x3+D+W)/(x2-L/2))
+                           -atan((x3+D)/(x2+L/2))
+                           +atan((x3+D)/(x2+L/2))
+                           +atan((x3+D+W)/(x2+L/2)));
 
-   double p = (x3-(2*D+_W)/2)/_W;
-   double bc = -2*_G*((x2/_L +0.5 >= 0)-(x2/_L -0.5 <= 0))*((p+0.5>=0)-(p-0.5>=0));
+   double p = (x3-(2*D+W)/2)/W;
+   double bc = -2*_G*((x2/L +0.5 >= 0)-(x2/L -0.5 <= 0))*((p+0.5>=0)-(p-0.5>=0));
 
    //printf("i: %d, j: %d, D: %f, x2: %f, x3: %f, s: %f\n", i,j, D, x2, x3, s1212);
 
