@@ -53,7 +53,7 @@ inline double GreensFnShear1213::Eval (UInt i, UInt j) const {
   L = abs(2.0*(_y(2,j) - _x(2,j)));
   W = abs(2.0*(_y(3,j) - _x(2,j)));
 
-  D = (double)_x(3,i); - 0.5*_dz + _trans;
+  D = (double)_x(3,i) + _trans;
 
   double s1213 = (_G/(2*M_PI))*( log( pow((x2-L/2),2) + pow((x3-D-W),2) )
                                 -log( pow((x2+L/2),2) + pow((x3-D-W),2) )
