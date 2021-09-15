@@ -17,13 +17,6 @@ private:
   Matd _x;
   Matd _y;
 
-  // size of blocks
-  double _dz;
-
-  // size of mesh
-  double _L;
-  double _W;
-
   // rigidity
   double _G;
 
@@ -46,6 +39,9 @@ inline double GreensFnShear1312::Eval (UInt i, UInt j) const {
   double y2; // src
   double y3;
 
+  double L; // block len x2
+  double W; // block width x3
+
   double D; // receiver depth
 
   // for kernel; receiver relative to src
@@ -53,6 +49,9 @@ inline double GreensFnShear1312::Eval (UInt i, UInt j) const {
   y3 = (double)_y(3,i);
   x2 = (double)_x(2,j) - y2;
   x3 = (double)_x(3,j) - y3;
+
+  L = abs(2.0*(_y(2,j) - _x(2,j)));
+  W = abs(2.0*(_y(3,j) - _x(2,j)));
 
   D = (double)_x(3,i); - 0.5*_dz + _trans;
 
@@ -82,18 +81,8 @@ void GreensFnShear1312::Init(const KeyValueFile* kvf) throw (Exception) {
   _y = *m;
   if (_y.Size(1) != 3) throw Exception("Y must be 3xN.");
 
-  kvf->GetDouble("dz", _dz);
-  if (_dz <=0) throw Exception("dz must be greater than 0.");
-  printf("dz: %f\n", _dz);
-
   kvf->GetDouble("G", _G);
   if (_G <=0) throw Exception("G must be greater than 0.");
-
-  kvf->GetDouble("W", _W);
-  if (_W <= 0) throw Exception("W must be greater than 0.");
-
-  kvf->GetDouble("L", _L);
-  if (_L <= 0) throw Exception("L must be greater than 0.");
 
   kvf->GetDouble("transition", _trans);
   if (_trans < 0) throw Exception("transition depth should be positive");
