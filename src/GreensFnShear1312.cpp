@@ -60,7 +60,7 @@ inline double GreensFnShear1312::Eval (UInt i, UInt j) const {
                                 +log( pow((x2 - L/2),2) + pow((x3+D+W),2) )
                                 -log( pow((x2 + L/2),2) + pow((x3+D+W),2) )
                                 -log( pow((x2 - L/2),2) + pow((x3-D),2) )
-                                +log( pow((x2 - L/2),2) + pow((x3-D),2) )
+                                +log( pow((x2 + L/2),2) + pow((x3-D),2) )
                                 -log( pow((x2 - L/2),2) + pow((x3+D),2))
                                 +log( pow((x2 + L/2),2) + pow((x3+D),2)) );
 
