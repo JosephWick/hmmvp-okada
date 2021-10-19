@@ -61,7 +61,7 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
                            -atan((x3-D-W)/(x2+L/2))
                            -atan((x3+D+W)/(x2-L/2))
                            -atan((x3+D)/(x2+L/2))
-                           +atan((x3+D)/(x2+L/2))
+                           +atan((x3+D)/(x2-L/2))
                            +atan((x3+D+W)/(x2+L/2)));
 
    double p = (x3-(2*D+W)/2)/W;
