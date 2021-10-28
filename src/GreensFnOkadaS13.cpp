@@ -45,7 +45,9 @@ inline double GreensFnOkadaS13::Eval (UInt i, UInt j) const {
   x2 = (double)_x(2,i);
   x3 = (double)_x(3,i);
 
-  double W = _dz;
+  L = abs(2.0*(_y(2,j) - _x(2,j)));
+  W = abs(2.0*(_y(3,j) - _x(3,j)));
+  
   double s13 = (_G/(2*M_PI))*( (x2-y2)/(pow((x2-y2),2) + pow((x3-y3),2))
                               -(x2-y2)/(pow((x2-y2),2) - pow((x3+y3),2))
                               -(x2-y2)/(pow((x2-y2),2) + pow((x3-y3-W),2))
