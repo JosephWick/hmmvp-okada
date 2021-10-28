@@ -44,7 +44,7 @@ inline double GreensFnTest::Eval (UInt i, UInt j) const {
   // find individual values to the hmatrix here
   // i is the receiver, j is the source
 
-  double z = (double)_x(3,i)
+  double z = (double)_x(3,i);
 
   return z;
 }
