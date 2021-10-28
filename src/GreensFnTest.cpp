@@ -57,7 +57,7 @@ inline double GreensFnTest::Eval (UInt i, UInt j) const {
   //double obsy = ((i % meshW) + 0.5) * _dz;
   //double obsz = 0.0;
 
-  return i+j;
+  return i;
 }
 
 void GreensFnTest::Init (const KeyValueFile* kvf) throw (Exception) {

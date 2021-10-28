@@ -40,10 +40,10 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   double y3;
 
   // for kernel; receiver relative to src
-  y2 = (double)_y(2,i);
-  y3 = (double)_y(3,i);
-  x2 = (double)_x(2,j);
-  x3 = (double)_x(3,j);
+  y2 = (double)_y(2,j);
+  y3 = (double)_y(3,j);
+  x2 = (double)_x(2,i);
+  x3 = (double)_x(3,i);
 
   // W replaced here with _dz
   double s12 = (_G/(2*M_PI))*( -(x3-y3)/(pow((x2-y2),2) + pow((x3-y3),2))
