@@ -41,23 +41,12 @@ private:
 };
 
 inline double GreensFnTest::Eval (UInt i, UInt j) const {
-  //find individual values to the hmatrix here
-  // i is the reeiver, j is the source
+  // find individual values to the hmatrix here
+  // i is the receiver, j is the source
 
-  // first lets find dimensions of mesh
-  //printf("\n__%d, %d, %d__\n", _len, _wid, _dz);
-  int meshL = _len/_dz;
-  int meshW = _wid/_dz;
+  z = (double)_x(3,i)
 
-  //printf("%d, %d", meshL, meshW);
-
-  // getting parameters
-  // for observer position
-  //double obsx = ((i % meshL) + 0.5) * _dz;
-  //double obsy = ((i % meshW) + 0.5) * _dz;
-  //double obsz = 0.0;
-
-  return i;
+  return z;
 }
 
 void GreensFnTest::Init (const KeyValueFile* kvf) throw (Exception) {
