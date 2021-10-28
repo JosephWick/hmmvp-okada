@@ -39,6 +39,9 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   double y2; // src
   double y3;
 
+  double L;
+  double W;
+
   // for kernel; receiver relative to src
   y2 = (double)_y(2,j);
   y3 = (double)_y(3,j);
