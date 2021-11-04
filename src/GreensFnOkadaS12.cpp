@@ -53,8 +53,8 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
 
   double s12 = (_G/(2*M_PI))*(-(x3-y3)/(pow((x2-y2),2)     + pow((x3-y3),2))
                               +(x3+y3)/(pow((x2-y2),2)     + pow((x3+y3),2))
-                              +(x3-y3-_dz)/(pow((x2-y2),2) + pow((x3-y3-W),2))
-                              -(x3+y3+_dz)/(pow((x2-y2),2) + pow((x3+y3+W),2)) );
+                              +(x3-y3-W)/(pow((x2-y2),2) + pow((x3-y3-W),2))
+                              -(x3+y3+W)/(pow((x2-y2),2) + pow((x3+y3+W),2)) );
 
   //printf("x2: %f, x3: %f, y2: %f, y3: %f, W: %f, s: %f\n", x2, x3, y2, y3, _dz, s12);
 
@@ -77,10 +77,6 @@ void GreensFnOkadaS12::Init(const KeyValueFile* kvf) throw (Exception) {
   if (!kvf->GetMatd("Y", m)) throw Exception("Missing Y.");
   _y = *m;
   if (_y.Size(1) != 3) throw Exception("Y must be 3xN.");
-
-  kvf->GetDouble("dz", _dz);
-  if (_dz <=0) throw Exception("dz must be greater than 0.");
-  printf("dz: %f\n", _dz);
 
   kvf->GetDouble("G", _G);
   if (_G <=0) throw Exception("G must be greater than 0.");
