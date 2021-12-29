@@ -56,7 +56,7 @@ void GreensFnTest::Init (const KeyValueFile* kvf) throw (Exception) {
   UInt tmp2;
   double d2;
 
-  if (!kvf->GetMatd("X", m)) throw Exception("Missing X.");
+  if (!kvf->GetMatd("A", m)) throw Exception("Missing X.");
   _x = *m;
   if (_x.Size(1) != 3) throw Exception("X must be 3xN.");
 
