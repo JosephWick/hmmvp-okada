@@ -52,14 +52,14 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
   x2 = (double)_x(2,i) - y2;
   x3 = (double)_x(3,i) - y3;
 
-  n = _y.size(2);
+  n = _y.Size(2);
 
   if (j!=n) {
     L = abs(_y(2,j) - _y(2,j+1));
     W = abs(_y(3,j) - _x(3,j+1));
   } else {
     L = abs(_y(2,1) - _y(2,2));
-    W = abs(_y(3,1) - _y()3,2));
+    W = abs(_y(3,1) - _y(3,2));
   }
 
 
