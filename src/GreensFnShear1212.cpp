@@ -8,7 +8,7 @@
 class GreensFnShear1212 : public ImplGreensFn {
 public:
   virtual void Init(const KeyValueFile* kvf) throw (Exception);
-  virtual Hd* ComputeHd (double eta) {return NewHd(_y, _x, NULL, eta); }
+  virtual Hd* ComputeHd (double eta) {return NewHd(_x, _y, NULL, eta); }
   virtual bool Call(const CompressBlockInfo& cbi, const vector<UInt>& rs,
                     const vector<UInt>& cs, double* B) const;
 
