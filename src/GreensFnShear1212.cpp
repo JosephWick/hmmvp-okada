@@ -54,6 +54,9 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
 
   n = _y.Size(2);
 
+  double a = _y(1,0);
+  fprintf("%d", n);
+
   if (j < n-1) {
     L = abs(_y(2,j) - _y(2,j+1));
     W = abs(_y(3,j) - _x(3,j+1));
