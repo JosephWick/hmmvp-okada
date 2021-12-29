@@ -44,14 +44,24 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
 
   double D; // receiver depth
 
+  double n; // num blocks in _y
+
   // for kernel; receiver relative to src
   y2 = (double)_y(2,j);
   y3 = (double)_y(3,j);
   x2 = (double)_x(2,i) - y2;
   x3 = (double)_x(3,i) - y3;
 
-  L = abs(2.0*(_y(2,j) - _x(2,j)));
-  W = abs(2.0*(_y(3,j) - _x(3,j)));
+  n = _y.size(2);
+
+  if (j!=n) {
+    L = abs(_y(2,j) - _y(2,j+1));
+    W = abs(_y(3,j) - _x(3,j+1));
+  } else {
+    L = abs(_y(2,1) - _y(2,2));
+    W = abs(_y(3,1) - _y()3,2));
+  }
+
 
   D = (double)_x(3,i) + _trans;
 
