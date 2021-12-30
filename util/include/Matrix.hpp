@@ -170,7 +170,7 @@ public:
     return _data[(j - idx_start)*_m + i - idx_start];
   }
   const T& operator() (size_t i, size_t j) const {
-    printf("idx_start: %d, _m: %d, _n: %d, i: %d, j: %d\n", idx_start, _m, _n, i, j);
+    //printf("idx_start: %d, _m: %d, _n: %d, i: %d, j: %d\n", idx_start, _m, _n, i, j);
     assert(i >= idx_start && j >= idx_start
            && i < _m + idx_start && j < _n + idx_start);
     return _data[(j - idx_start)*_m + i - idx_start];
