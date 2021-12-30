@@ -44,26 +44,14 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
 
   double D; // receiver depth
 
-  double n; // num blocks in _y
-
   // for kernel; receiver relative to src
   y2 = (double)_y(2,j);
   y3 = (double)_y(3,j);
   x2 = (double)_x(2,i) - y2;
   x3 = (double)_x(3,i) - y3;
 
-  n = _y.Size(2);
-
-  double a = _y(1,0);
-  printf("%d", n);
-
-  if (j < n) {
-    L = abs(_y(2,j) - _y(2,j+1));
-    W = abs(_y(3,j) - _x(3,j+1));
-  } else {
-    L = abs(_y(2,1) - _y(2,2));
-    W = abs(_y(3,1) - _y(3,2));
-  }
+  L = abs(2.0*(_y(2,j) - _x(2,j)));
+  W = abs(2.0*(_y(3,j) - _x(3,j)));
 
   D = (double)_x(3,i) + _trans;
 
@@ -93,13 +81,9 @@ void GreensFnShear1212::Init(const KeyValueFile* kvf) throw (Exception) {
   _x = *m;
   if (_x.Size(1) != 3) throw Exception("X must be 3xN.");
 
-  printf("%d, %d\n", _x.Size(1), _x.Size(2));
-
   if (!kvf->GetMatd("Y", n)) throw Exception("Missing Y.");
   _y = *n;
   if (_y.Size(1) != 3) throw Exception("Y must be 3xN.");
-
-  printf("%d, %d\n", _y.Size(1), _y.Size(2));
 
   kvf->GetDouble("G", _G);
   if (_G <=0) throw Exception("G must be greater than 0.");
