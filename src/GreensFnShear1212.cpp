@@ -99,7 +99,7 @@ void GreensFnShear1212::Init(const KeyValueFile* kvf) throw (Exception) {
   _y = *mm;
   if (_y.Size(1) != 3) throw Exception("Y must be 3xN.");
 
-  printf("%d, %d\n", _y.Size(1), _y.Size(2));
+  printf("%d, %d, %d\n", _y.Size(1), _y.Size(2), _y.Size(3));
 
   kvf->GetDouble("G", _G);
   if (_G <=0) throw Exception("G must be greater than 0.");
