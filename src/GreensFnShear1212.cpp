@@ -57,14 +57,13 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
   double a = _y(1,0);
   printf("%d", n);
 
-  if (j < n-1) {
+  if (j < n) {
     L = abs(_y(2,j) - _y(2,j+1));
     W = abs(_y(3,j) - _x(3,j+1));
   } else {
-    L = abs(_y(2,0) - _y(2,1));
-    W = abs(_y(3,0) - _y(3,1));
+    L = abs(_y(2,1) - _y(2,2));
+    W = abs(_y(3,1) - _y(3,2));
   }
-
 
   D = (double)_x(3,i) + _trans;
 
@@ -93,6 +92,8 @@ void GreensFnShear1212::Init(const KeyValueFile* kvf) throw (Exception) {
   if (!kvf->GetMatd("X", m)) throw Exception("Missing X.");
   _x = *m;
   if (_x.Size(1) != 3) throw Exception("X must be 3xN.");
+
+  printf("%d, %d, %d", _x.Size(1), _x.Size(2), _x.Size(3));
 
   if (!kvf->GetMatd("Y", mm)) throw Exception("Missing Y.");
   _y = *mm;
