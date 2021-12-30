@@ -8,7 +8,7 @@
 class GreensFnShear1212 : public ImplGreensFn {
 public:
   virtual void Init(const KeyValueFile* kvf) throw (Exception);
-  virtual Hd* ComputeHd (double eta) {return NewHd(_x, _y, NULL, eta); }
+  virtual Hd* ComputeHd (double eta) {return NewHd(_y, _x, NULL, eta); }
   virtual bool Call(const CompressBlockInfo& cbi, const vector<UInt>& rs,
                     const vector<UInt>& cs, double* B) const;
 
@@ -87,7 +87,7 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
 
 void GreensFnShear1212::Init(const KeyValueFile* kvf) throw (Exception) {
   const Matd* m;
-  const Matd* mm;
+  const Matd* n;
 
   if (!kvf->GetMatd("X", m)) throw Exception("Missing X.");
   _x = *m;
@@ -95,8 +95,8 @@ void GreensFnShear1212::Init(const KeyValueFile* kvf) throw (Exception) {
 
   printf("%d, %d\n", _x.Size(1), _x.Size(2));
 
-  if (!kvf->GetMatd("Y", mm)) throw Exception("Missing Y.");
-  _y = *mm;
+  if (!kvf->GetMatd("Y", n)) throw Exception("Missing Y.");
+  _y = *n;
   if (_y.Size(1) != 3) throw Exception("Y must be 3xN.");
 
   printf("%d, %d\n", _y.Size(1), _y.Size(2));
