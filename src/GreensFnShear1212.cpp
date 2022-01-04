@@ -27,7 +27,7 @@ private:
 };
 
 inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
-  // i is the reiver, j is the source
+  // i is the reiver, j is the source; both start at 1
   // keep in mind that i/j are the cell number not location
   //printf("ij: %d, %d\n", i, j);
 
@@ -39,8 +39,8 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
   double y2; // src
   double y3;
 
-  double L; // block len x2
-  double W; // block wdith x3
+  double L; // source block len x2
+  double W; // source block wdith x3
 
   double D; // receiver depth
 
@@ -50,10 +50,15 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
   x2 = (double)_x(2,i) - y2;
   x3 = (double)_x(3,i) - y3;
 
+  double len = _y.Size(2);
 
-
-  L = abs(2.0*(_y(2,j) - _x(2,j)));
-  W = abs(2.0*(_y(3,j) - _x(3,j)));
+  if (j < len) {
+    L = abs(_y(2,j) - _y(2,j+1));
+    W = abs(_y(3,j) - _y(3,j+1));
+  } else {
+    L = abs(_y(2,j) - _y(2,j-1));
+    W = abs(_y(3,j) - _y(3,j-1));
+  }
 
   D = (double)_x(3,i) + _trans;
 
@@ -82,9 +87,6 @@ void GreensFnShear1212::Init(const KeyValueFile* kvf) throw (Exception) {
   if (!kvf->GetMatd("X", m)) throw Exception("Missing X.");
   _x = *m;
   if (_x.Size(1) != 3) throw Exception("X must be 3xN.");
-
-  printf("%d\n", _x.Size(1));
-  printf("%d\n", _x.Size(2));
 
   if (!kvf->GetMatd("Y", n)) throw Exception("Missing Y.");
   _y = *n;
