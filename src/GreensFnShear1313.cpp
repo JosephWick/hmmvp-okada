@@ -60,7 +60,7 @@ inline double GreensFnShear1313::Eval(UInt i, UInt j) const {
     W = abs(_y(3,j) - _y(3,j-1));
   }
 
-  D = (double)_x(3,i) + _trans;
+  D = (double)_x(3,i);
 
   double s1313 = (_G/M_PI)*(atan((x2+L/2)/(x3-D))
                            -atan((x2-L/2)/(x3-D))
@@ -94,8 +94,6 @@ void GreensFnShear1313::Init(const KeyValueFile* kvf) throw (Exception) {
   kvf->GetDouble("G", _G);
   if (_G <=0) throw Exception("G must be greater than 0.");
 
-  kvf->GetDouble("transition", _trans);
-  if (_trans < 0) throw Exception("transition depth should be positive");
 }
 
 bool GreensFnShear1313::
