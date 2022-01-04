@@ -27,7 +27,7 @@ private:
 };
 
 inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
-  // i is the reiver, j is the source; both start at 1
+  // i is the receiver, j is the source; both start at 1
   // keep in mind that i/j are the cell number not location
   //printf("ij: %d, %d\n", i, j);
 
@@ -74,7 +74,7 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
    double p = (x3-(2*D+W)/2)/W;
    double bc = -2*_G*((x2/L +0.5 >= 0)-(x2/L -0.5 >= 0))*((p+0.5>=0)-(p-0.5>=0));
 
-   //printf("i: %d, j: %d, D: %f, x2: %f, x3: %f, s: %f\n", i,j, D, x2, x3, s1212);
+   printf("i: %d, j: %d, D: %f, x2: %f, x3: %f, s: %f\n", i,j, D, x2, x3, s1212);
 
    return s1212+bc;
 
