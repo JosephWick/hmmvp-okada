@@ -27,7 +27,7 @@ private:
 };
 
 inline double GreensFnShear1313::Eval(UInt i, UInt j) const {
-  // i is the reiver, j is the source
+  // i is the reiver, j is the source; both start at 1
   // keep in mind that i/j are the cell number not location
   //printf("ij: %d, %d\n", i, j);
 
@@ -50,8 +50,15 @@ inline double GreensFnShear1313::Eval(UInt i, UInt j) const {
   x2 = (double)_x(2,i) - y2;
   x3 = (double)_x(3,i) - y3;
 
-  L = abs(2.0*(_y(2,j) - _x(2,j)));
-  W = abs(2.0*(_y(3,j) - _x(3,j)));
+  double len = _y.Size(2);
+
+  if (j < len) {
+    L = abs(_y(2,j) - _y(2,j+1));
+    W = abs(_y(3,j) - _y(3,j+1));
+  } else {
+    L = abs(_y(2,j) - _y(2,j-1));
+    W = abs(_y(3,j) - _y(3,j-1));
+  }
 
   D = (double)_x(3,i) + _trans;
 
