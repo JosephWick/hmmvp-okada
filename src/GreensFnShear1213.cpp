@@ -77,6 +77,8 @@ inline double GreensFnShear1213::Eval (UInt i, UInt j) const {
 void GreensFnShear1213::Init(const KeyValueFile* kvf) throw (Exception) {
   const Matd* m;
   const Matd* n;
+  const Matd* l;
+  const Matd* w;
 
   if (!kvf->GetMatd("X", m)) throw Exception("Missing X.");
   _x = *m;
