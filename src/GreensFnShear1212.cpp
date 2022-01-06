@@ -100,7 +100,7 @@ void GreensFnShear1212::Init(const KeyValueFile* kvf) throw (Exception) {
 
   if (!kvf->GetMatd("L", l)) throw Exception("Missing L.");
   _L = *l;
-  printf("%d\n", _L.size(1));
+  printf("%d\n", _L.Size(1));
 
   kvf->GetDouble("G", _G);
   if (_G <=0) throw Exception("G must be greater than 0.");
