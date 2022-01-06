@@ -17,6 +17,10 @@ private:
   Matd _x;
   Matd _y;
 
+  // mesh sizing
+  Matd _L;
+  Matd _W;
+
   // rigidity
   double _G;
 
@@ -83,6 +87,8 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
 void GreensFnShear1212::Init(const KeyValueFile* kvf) throw (Exception) {
   const Matd* m;
   const Matd* n;
+  const Matd* l;
+  const Matd* w;
 
   if (!kvf->GetMatd("X", m)) throw Exception("Missing X.");
   _x = *m;
@@ -91,6 +97,10 @@ void GreensFnShear1212::Init(const KeyValueFile* kvf) throw (Exception) {
   if (!kvf->GetMatd("Y", n)) throw Exception("Missing Y.");
   _y = *n;
   if (_y.Size(1) != 3) throw Exception("Y must be 3xN.");
+
+  if (!kvf->GetMatd("L", l)) throw Exception("Missing L.");
+  _L = *l;
+  printf("%d\n", _L.size(1));
 
   kvf->GetDouble("G", _G);
   if (_G <=0) throw Exception("G must be greater than 0.");
