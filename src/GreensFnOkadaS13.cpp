@@ -71,13 +71,16 @@ inline double GreensFnOkadaS13::Eval (UInt i, UInt j) const {
 
 void GreensFnOkadaS13::Init(const KeyValueFile* kvf) throw (Exception) {
   const Matd* m;
+  const Matd* n;
+  const Matd* l;
+  const Matd* w;
 
   if (!kvf->GetMatd("X", m)) throw Exception("Missing X.");
   _x = *m;
   if (_x.Size(1) != 3) throw Exception("X must be 3xN.");
 
-  if (!kvf->GetMatd("Y", m)) throw Exception("Missing Y.");
-  _y = *m;
+  if (!kvf->GetMatd("Y", n)) throw Exception("Missing Y.");
+  _y = *n;
   if (_y.Size(1) != 3) throw Exception("Y must be 3xN.");
 
   if (!kvf->GetMatd("L", l)) throw Exception("Missing L.");
