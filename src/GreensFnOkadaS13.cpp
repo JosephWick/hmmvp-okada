@@ -17,8 +17,9 @@ private:
   Matd _x;
   Matd _y;
 
-  // size of blocks
-  double _dz;
+  // mesh sizing
+  Matd _L;
+  Matd _W;
 
   // rigidity
   double _G;
@@ -48,8 +49,8 @@ inline double GreensFnOkadaS13::Eval (UInt i, UInt j) const {
   x2 = (double)_x(2,i);
   x3 = (double)_x(3,i);
 
-  L = abs(2.0*(_y(2,j) - _x(2,j)));
-  W = abs(2.0*(_y(3,j) - _x(3,j)));
+  L = _L(1, j);
+  W = _W(1, j);
 
   double s13 = (_G/(2*M_PI))*( (x2-y2)/(pow((x2-y2),2) + pow((x3-y3),2))
                               -(x2-y2)/(pow((x2-y2),2) + pow((x3+y3),2))
@@ -57,11 +58,11 @@ inline double GreensFnOkadaS13::Eval (UInt i, UInt j) const {
                               +(x2-y2)/(pow((x2-y2),2) + pow((x3+y3+W),2))
                               );
 
-  if (isinf(s13)){
-    s13 = -999;
-    if (i<400 && j>400) printf("inf at i=%d, j=%d\n", i, j);
-    if (i>400 && j<400) printf("inf at i=%d, j=%d\n", i, j);
-  }
+  //if (isinf(s13)){
+    //s13 = -999;
+    //if (i<400 && j>400) printf("inf at i=%d, j=%d\n", i, j);
+    //if (i>400 && j<400) printf("inf at i=%d, j=%d\n", i, j);
+  //}
 
   //printf("x2: %f, x3: %f, y2: %f, y3: %f, W: %f, s: %f\n", x2, x3, y2, y3, _dz, s13);
 
@@ -78,6 +79,12 @@ void GreensFnOkadaS13::Init(const KeyValueFile* kvf) throw (Exception) {
   if (!kvf->GetMatd("Y", m)) throw Exception("Missing Y.");
   _y = *m;
   if (_y.Size(1) != 3) throw Exception("Y must be 3xN.");
+
+  if (!kvf->GetMatd("L", l)) throw Exception("Missing L.");
+  _L = *l;
+
+  if (!kvf->GetMatd("W", w)) throw Exception("Missing W.");
+  _W = *w;
 
   kvf->GetDouble("G", _G);
   if (_G <=0) throw Exception("G must be greater than 0.");
