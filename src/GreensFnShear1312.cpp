@@ -46,20 +46,20 @@ inline double GreensFnShear1312::Eval (UInt i, UInt j) const {
   double L; // block len x2
   double W; // block width x3
 
-  double D; // receiver depth
+  double D; // src depth
 
   // for kernel; receiver relative to src
   y2 = (double)_y(2,j);
   y3 = (double)_y(3,j);
   x2 = (double)_x(2,i) - y2;
-  x3 = (double)_x(3,i) - y3;
+  x3 = (double)_x(3,i);
 
   double len = _y.Size(2);
 
   L = _L(1, j);
   W = _W(1, j);
 
-  D = (double)_x(3,i);
+  D = (double)_x(3,j);
 
   double s1312 = (_G/(2*M_PI))*( log( pow((x2 - L/2),2) + pow((x3-D-W),2) )
                                 -log( pow((x2 + L/2),2) + pow((x3-D-W),2) )
