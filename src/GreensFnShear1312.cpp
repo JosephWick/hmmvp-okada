@@ -59,7 +59,7 @@ inline double GreensFnShear1312::Eval (UInt i, UInt j) const {
   L = _L(1, j);
   W = _W(1, j);
 
-  D = (double)_x(3,j);
+  D = (double)_y(3,j);
 
   double s1312 = (_G/(2*M_PI))*( log( pow((x2 - L/2),2) + pow((x3-D-W),2) )
                                 -log( pow((x2 + L/2),2) + pow((x3-D-W),2) )
