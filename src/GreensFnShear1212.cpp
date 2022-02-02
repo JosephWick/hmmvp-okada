@@ -17,8 +17,8 @@ private:
   Matd _x;
   Matd _y;
 
-  int _Ny;
-  int _Nz;
+  double _Ny;
+  double _Nz;
 
   // mesh sizing
   Matd _L;
@@ -54,7 +54,7 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
 
   double D; // src depth
 
-  double rec = (j%_Ny)+(j - (j%_Ny));
+  double rec = (j%(int)_Ny)+(j - (j%(int)_Ny));
 
   // for kernel; receiver relative to src
   y2 = (double)_y(2,rec);
@@ -110,10 +110,10 @@ void GreensFnShear1212::Init(const KeyValueFile* kvf) throw (Exception) {
   kvf->GetDouble("G", _G);
   if (_G <=0) throw Exception("G must be greater than 0.");
 
-  kvf->GetInt("Ny", _Ny);
+  kvf->GetDouble("Ny", _Ny);
   if (_Ny <= 0) throw Exception("Ny must be greater than 0.");
 
-  kvf->GetInt("Nz", _Nz);
+  kvf->Get("Nz", _Nz);
   if (_Nz <= 0) throw Exception("Nz must be greater than 0.");
 
 }
