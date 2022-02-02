@@ -17,8 +17,8 @@ private:
   Matd _x;
   Matd _y;
 
-  double Ny;
-  double Nz;
+  double _Ny;
+  double _Nz;
 
   // mesh sizing
   Matd _L;
