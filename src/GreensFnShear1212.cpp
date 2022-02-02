@@ -17,8 +17,8 @@ private:
   Matd _x;
   Matd _y;
 
-  double _Ny;
-  double _Nz;
+  int _Ny;
+  int _Nz;
 
   // mesh sizing
   Matd _L;
@@ -110,10 +110,10 @@ void GreensFnShear1212::Init(const KeyValueFile* kvf) throw (Exception) {
   kvf->GetDouble("G", _G);
   if (_G <=0) throw Exception("G must be greater than 0.");
 
-  kvf->GetDouble("Ny", _Ny);
+  kvf->GetInt("Ny", _Ny);
   if (_Ny <= 0) throw Exception("Ny must be greater than 0.");
 
-  kvf->GetDouble("Nz", _Nz);
+  kvf->GetInt("Nz", _Nz);
   if (_Nz <= 0) throw Exception("Nz must be greater than 0.");
 
 }
