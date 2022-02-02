@@ -17,6 +17,9 @@ private:
   Matd _x;
   Matd _y;
 
+  double Ny;
+  double Nz;
+
   // mesh sizing
   Matd _L;
   Matd _W;
@@ -32,6 +35,7 @@ private:
 
 inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
   // i is the receiver, j is the source; both start at 1
+  // i refers to row of matrix, j column
   // keep in mind that i/j are the cell number not location
   //printf("ij: %d, %d\n", i, j);
 
@@ -43,21 +47,25 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
   double y2; // src
   double y3;
 
+  double col;
+
   double L; // source block len x2
   double W; // source block wdith x3
 
   double D; // src depth
 
+  rec = (j%_Ny)+(j - (j%_Ny));
+
   // for kernel; receiver relative to src
-  y2 = (double)_y(2,j);
-  y3 = (double)_y(3,j);
+  y2 = (double)_y(2,rec);
+  y3 = (double)_y(3,rec);
   x2 = (double)_x(2,i) - y2;
   x3 = (double)_x(3,i);
 
   double len = _y.Size(2);
 
-  L = _L(1, j);
-  W = _W(1, j);
+  L = _L(1, rec);
+  W = _W(1, rec);
 
   D = (double)_y(3,j);
 
@@ -101,6 +109,12 @@ void GreensFnShear1212::Init(const KeyValueFile* kvf) throw (Exception) {
 
   kvf->GetDouble("G", _G);
   if (_G <=0) throw Exception("G must be greater than 0.");
+
+  kvf->GetDouble("Ny", _Ny);
+  if (_Ny <= 0) throw Exception("Ny must be greater than 0.");
+
+  kvf->GetDouble("Nz", _Nz);
+  if (_Nz <= 0) throw Exception("Nz must be greater than 0.");
 
 }
 
