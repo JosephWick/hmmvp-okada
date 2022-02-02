@@ -55,8 +55,7 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
   double D; // src depth
 
   double recz = (j%(int)_Ny);
-  if recz == 0
-    recz = _Ny;
+  if (recz == 0){ recz = _Ny; }
   double recy = (int)(j/(int)_Ny) + 1;
 
   // for kernel; receiver relative to src
@@ -70,7 +69,7 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
   L = _L(1, recy);
   W = _W(1, recz);
 
-  D = (double)_y(3,j);
+  D = (double)_y(3,recz);
 
   double s1212 = (_G/M_PI)*(atan((x3-D)/(x2+L/2))
                            -atan((x3-D)/(x2-L/2))
