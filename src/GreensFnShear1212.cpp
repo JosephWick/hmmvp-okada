@@ -56,6 +56,8 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
 
   double recz = (j%(int)_Ny);
   double recy = (int)(j/(int)_Ny) + 1;
+  if (recy > _Ny)
+    recy = _Ny;
 
   // for kernel; receiver relative to src
   y2 = (double)_y(2,recy);
