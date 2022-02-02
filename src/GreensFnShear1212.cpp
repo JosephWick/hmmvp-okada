@@ -54,18 +54,19 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
 
   double D; // src depth
 
-  double rec = (j%(int)_Ny)+(j - (j%(int)_Ny));
+  double recz = (j%(int)_Ny);
+  double recy = (int)(j/(int)_Ny);
 
   // for kernel; receiver relative to src
-  y2 = (double)_y(2,rec);
-  y3 = (double)_y(3,rec);
+  y2 = (double)_y(2,recy);
+  y3 = (double)_y(3,recz);
   x2 = (double)_x(2,i) - y2;
   x3 = (double)_x(3,i);
 
   double len = _y.Size(2);
 
-  L = _L(1, rec);
-  W = _W(1, rec);
+  L = _L(1, recy);
+  W = _W(1, recz);
 
   D = (double)_y(3,j);
 
