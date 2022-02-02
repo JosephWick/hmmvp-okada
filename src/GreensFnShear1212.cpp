@@ -48,31 +48,29 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
   double y2; // src
   double y3;
 
-  double col;
-
   double L; // source block len x2
   double W; // source block wdith x3
 
   double D; // src depth
 
-  double recy = (j%(int)_Ny);
-  if (recy == 0){ recy = _Ny; }
-  double recz = (int)(j/(int)_Ny) + 1;
+  int srcy = (j%(int)_Ny);
+  if (srcy == 0){ srcy = _Ny; }
+  int srcz = (int)(j/(int)_Ny) + 1;
   //if (recz == _Ny+1) { recz = _Ny; }
-  if (recy == _Ny) { recz -= 1; }
+  if (srcy == _Ny) { srcz -= 1; }
 
   // for kernel; receiver relative to src
-  y2 = (double)_y(2,recy);
-  y3 = (double)_y(3,recz);
+  y2 = (double)_y(2,srcy);
+  y3 = (double)_y(3,srcz);
   x2 = (double)_x(2,i) - y2;
   x3 = (double)_x(3,i);
 
   double len = _y.Size(2);
 
-  L = _L(1, recy);
-  W = _W(1, recz);
+  L = _L(1, srcy);
+  W = _W(1, srcz);
 
-  D = (double)_y(3,recz);
+  D = (double)_y(3,srcz);
 
   double s1212 = (_G/M_PI)*(atan((x3-D)/(x2+L/2))
                            -atan((x3-D)/(x2-L/2))
