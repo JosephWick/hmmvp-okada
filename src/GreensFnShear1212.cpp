@@ -113,7 +113,7 @@ void GreensFnShear1212::Init(const KeyValueFile* kvf) throw (Exception) {
   kvf->GetDouble("Ny", _Ny);
   if (_Ny <= 0) throw Exception("Ny must be greater than 0.");
 
-  kvf->Get("Nz", _Nz);
+  kvf->GetDouble("Nz", _Nz);
   if (_Nz <= 0) throw Exception("Nz must be greater than 0.");
 
 }
