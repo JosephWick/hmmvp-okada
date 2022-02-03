@@ -117,6 +117,12 @@ void GreensFnShear1213::Init(const KeyValueFile* kvf) throw (Exception) {
   kvf->GetDouble("G", _G);
   if (_G <=0) throw Exception("G must be greater than 0.");
 
+  kvf->GetDouble("Ny", _Ny);
+  if (_Ny <= 0) throw Exception("Ny must be greater than 0.");
+
+  kvf->GetDouble("Nz", _Nz);
+  if (_Nz <= 0) throw Exception("Nz must be greater than 0.");
+
 }
 
 bool GreensFnShear1213::

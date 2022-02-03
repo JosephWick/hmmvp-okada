@@ -16,7 +16,7 @@ private:
   // geometry
   Matd _x;
   Matd _y;
-  Matd _z; //sizing only
+  Matd _z; // for sizing only
 
   double _Ny;
   double _Nz;
