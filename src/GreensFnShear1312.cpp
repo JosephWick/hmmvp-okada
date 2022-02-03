@@ -18,6 +18,9 @@ private:
   Matd _y;
   Matd _z; // hm sizing only
 
+  double _Ny;
+  double _Nz;
+
   // mesh sizing
   Matd _L;
   Matd _W;
