@@ -16,6 +16,7 @@ private:
   // geometry
   Matd _x;
   Matd _y;
+  Matd _z; // sizing only
 
   // mesh sizing
   Matd _L;
@@ -48,17 +49,27 @@ inline double GreensFnShear1313::Eval(UInt i, UInt j) const {
 
   double D; // src depth
 
+  int srcy;
+  int srcz;
+
+  srcy = (j%(int)_Ny);
+  srcz = (int)(j/(int)_Ny) +1;
+  if (srcy == 0) {
+    srcy = _Ny;
+    srcz -= 1;
+  }
+
   // for kernel; receiver relative to src
-  y2 = (double)_y(2,j);
-  y3 = (double)_y(3,j);
+  y2 = (double)_y(2,srcy);
+  y3 = (double)_y(3,srcz);
   x2 = (double)_x(2,i) - y2;
   x3 = (double)_x(3,i);
 
   double len = _y.Size(2);
 
 
-  L = _L(1, j);
-  W = _W(1, j);
+  L = _L(1, srcy);
+  W = _W(1, srcz);
 
   D = (double)_y(3,j);
 
@@ -83,6 +94,8 @@ inline double GreensFnShear1313::Eval(UInt i, UInt j) const {
 void GreensFnShear1313::Init(const KeyValueFile* kvf) throw (Exception) {
   const Matd* m;
   const Matd* n;
+  const Matd* o;
+
   const Matd* l;
   const Matd* w;
 
@@ -93,6 +106,10 @@ void GreensFnShear1313::Init(const KeyValueFile* kvf) throw (Exception) {
   if (!kvf->GetMatd("Y", n)) throw Exception("Missing Y.");
   _y = *n;
   if (_y.Size(1) != 3) throw Exception("Y must be 3xN.");
+
+  if (!kvf->GetMatd("Z", o)) throw Exception("Missing Z.");
+  _z = *o;
+  if (_z.Size(1) != 3) throw Exception("Z must be 3xN.");
 
   if (!kvf->GetMatd("L", l)) throw Exception("Missing L.");
   _L = *l;

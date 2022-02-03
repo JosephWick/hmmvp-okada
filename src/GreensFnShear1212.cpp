@@ -53,11 +53,15 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
 
   double D; // src depth
 
-  int srcy = (j%(int)_Ny);
-  if (srcy == 0){ srcy = _Ny; }
-  int srcz = (int)(j/(int)_Ny) + 1;
-  //if (recz == _Ny+1) { recz = _Ny; }
-  if (srcy == _Ny) { srcz -= 1; }
+  int srcy;
+  int srcz;
+
+  srcy = (j%(int)_Ny);
+  srcz = (int)(j/(int)_Ny) +1;
+  if (srcy == 0) {
+    srcy = _Ny;
+    srcz -= 1;
+  }
 
   // for kernel; receiver relative to src
   y2 = (double)_y(2,srcy);
@@ -94,6 +98,7 @@ void GreensFnShear1212::Init(const KeyValueFile* kvf) throw (Exception) {
   const Matd* m;
   const Matd* n;
   const Matd* o;
+
   const Matd* l;
   const Matd* w;
 
