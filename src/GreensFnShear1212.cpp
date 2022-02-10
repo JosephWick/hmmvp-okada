@@ -88,7 +88,7 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
 
    //printf("i: %d, j: %d, D: %f, x2: %f, x3: %f, s: %f\n", i,j, D, x2, x3, s1212);
 
-   if (i==42 && srcy == 27 && srcz == 1){
+   if (i==42 && srcy == 51 && srcz == 1){
      printf("\n\n");
      printf("%d\n", j);
      printf("%d\n", srcy);
