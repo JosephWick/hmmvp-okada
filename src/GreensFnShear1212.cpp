@@ -89,13 +89,15 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
    //printf("i: %d, j: %d, D: %f, x2: %f, x3: %f, s: %f\n", i,j, D, x2, x3, s1212);
 
    if (i==42 && srcy == 1 && srcz == 1){
-     printf("%d", j);
-     printf("%f", L);
-     printf("%f", W);
-     printf("%f",  D);
-     printf("%f", x2);
-     printf("%f", x3);
-     printf("%f", s1212+bc);
+     printf("\n");
+     printf("%d\n", j);
+     printf("%f\n", L);
+     printf("%f\n", W);
+     printf("%f\n",  D);
+     printf("%f\n", x2);
+     printf("%f\n", x3);
+     printf("%f\n", s1212+bc);
+     printf("\n");
    }
 
    return s1212+bc;
