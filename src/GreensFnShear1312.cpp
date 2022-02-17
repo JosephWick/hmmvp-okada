@@ -68,8 +68,6 @@ inline double GreensFnShear1312::Eval (UInt i, UInt j) const {
   x2 = (double)_x(2,i) - y2;
   x3 = (double)_x(3,i);
 
-  double len = _y.Size(2);
-
   L = _L(1, srcy);
   W = _W(1, srcz);
 

@@ -87,7 +87,7 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
    double bc = -2*_G*((x2/L +0.5 >= 0)-(x2/L -0.5 >= 0))*((p+0.5>=0)-(p-0.5>=0));
 
    //printf("i: %d, j: %d, D: %f, x2: %f, x3: %f, s: %f\n", i,j, D, x2, x3, s1212);
-
+   /*
    if (i==42 && srcy == 51 && srcz == 51){
      printf("\n\n");
      printf("%d\n", j);
@@ -101,7 +101,7 @@ inline double GreensFnShear1212::Eval(UInt i, UInt j) const {
      printf("%f\n", s1212+bc);
      printf("\n");
    }
-
+   */
    return s1212+bc;
 
 }
