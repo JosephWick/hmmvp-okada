@@ -3,51 +3,67 @@
 class GreensFnTest : public ImplGreensFn {
 public:
   virtual void Init(const KeyValueFile* kvf) throw (Exception);
-  virtual Hd* ComputeHd (double eta) { return NewHd(_x, _y, NULL, eta); }
+  virtual Hd* ComputeHd (double eta) { return NewHd(_z, _x, NULL, eta); }
   virtual bool Call(const CompressBlockInfo& cbi, const vector<UInt>& rs,
                     const vector<UInt>& cs, double* B) const;
 
 private:
+  // geometry
   Matd _x;
   Matd _y;
-  UInt _order;
-  double _delta;
+  Matd _z; // hm sizing only
 
-  // halfspace
-  char _h;
+  double _Ny;
+  double _Nz;
 
-  // elastic properties
-  double _mu;
-  double _nu;
-  double _alpha;
+  // mesh sizing
+  Matd _L;
+  Matd _W;
 
-  // size of blocks
-  double _dz;
+  // rigidity
+  double _G;
 
-  // angle of fault
-  double _dip;
-
-  double _depth;
-
-  //length/width of fault
-  double _len;
-  double _wid;
-
-  // dislocations
-  double _d1;
-  double _d2;
-  double _d3;
+  // depth offset
+  double _trans;
 
   double Eval(UInt i, UInt j) const;
 };
 
 inline double GreensFnTest::Eval (UInt i, UInt j) const {
-  // find individual values to the hmatrix here
-  // i is the receiver, j is the source
+  // i is the reiver, j is the source; both start at 1
+  // keep in mind that i/j are the cell number not location
+  //printf("ij: %d, %d\n", i, j);
 
-  double z = (double)_y(3,i);
+  // declaration
 
-  return z;
+  // inputs for kernel equation
+  double x2; // receiver
+  double x3;
+  double y2; // src
+  double y3;
+
+  double L; // block len x2
+  double W; // block width x3
+
+  double D; // src depth
+
+  int srcy;
+  int srcz;
+
+  srcy = (j%(int)_Ny);
+  srcz = (int)(j/(int)_Ny) +1;
+  if (srcy == 0) {
+    srcy = _Ny;
+    srcz -= 1;
+  }
+
+  y2 = (double)_y(2, srcy);
+  y3 = (double)_y(3, srcz);
+  x2 = (double)_x(2, i);
+  x3 = (double)_x(3, i);
+
+  return pow( pow(x2-y2,2) + pow(x3-y3,2), 0.5);
+
 }
 
 void GreensFnTest::Init (const KeyValueFile* kvf) throw (Exception) {
