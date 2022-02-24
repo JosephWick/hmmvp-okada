@@ -67,12 +67,12 @@ inline double GreensFnTest::Eval (UInt i, UInt j) const {
 }
 
 void GreensFnTest::Init (const KeyValueFile* kvf) throw (Exception) {
-  double d;
   const Matd* m;
   const Matd* n;
-  UInt tmp;
-  UInt tmp2;
-  double d2;
+  const Matd* o;
+
+  const Matd* l;
+  const Matd* w;
 
   if (!kvf->GetMatd("X", m)) throw Exception("Missing X.");
   _x = *m;
@@ -82,14 +82,24 @@ void GreensFnTest::Init (const KeyValueFile* kvf) throw (Exception) {
   _y = *n;
   if (_y.Size(1) != 3) throw Exception("Y must be 3xN.");
 
-  if (kvf->GetDouble("order", d)) _order = (UInt) d;
-  printf("order: %d\n", _order);
+  if (!kvf->GetMatd("Z", o)) throw Exception("Missing Z.");
+  _z = *o;
+  if (_z.Size(1) != 3) throw Exception("Z must be 3xN.");
 
-  kvf->GetDouble("delta", _delta);
-  printf("delta: %f\n", _delta);
+  if (!kvf->GetMatd("L", l)) throw Exception("Missing L.");
+  _L = *l;
 
-  printf(" %d\n", d2);
+  if (!kvf->GetMatd("W", w)) throw Exception("Missing W.");
+  _W = *w;
 
+  kvf->GetDouble("G", _G);
+  if (_G <=0) throw Exception("G must be greater than 0.");
+
+  kvf->GetDouble("Ny", _Ny);
+  if (_Ny <= 0) throw Exception("Ny must be greater than 0.");
+
+  kvf->GetDouble("Nz", _Nz);
+  if (_Nz <= 0) throw Exception("Nz must be greater than 0.");
 }
 
 bool GreensFnTest::
