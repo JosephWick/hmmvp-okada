@@ -57,7 +57,7 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
                               +(x3-y3-W)/(pow((x2-y2),2) + pow((x3-y3-W),2))
                               -(x3+y3+W)/(pow((x2-y2),2) + pow((x3+y3+W),2)) );
 
-  printf("x2: %f, x3: %f, y2: %f, y3: %f, W: %f, s: %f\n", x2, x3, y2, y3, s12);
+  printf("x2: %f, x3: %f, y2: %f, y3: %f, W: %f, s: %f\n", x2, x3, y2, y3, W, s12);
 
   //if (isinf(s12)){
     //s12 = -999;
