@@ -44,9 +44,9 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
   double W;
 
   // for kernel
-  y2 = (double)_y(3,j);
+  y2 = (double)_y(2,j);
   y3 = (double)_y(3,j);
-  x2 = (double)_x(3,i);
+  x2 = (double)_x(2,i);
   x3 = (double)_x(3,i);
 
   L = _L(1, j);
@@ -57,7 +57,7 @@ inline double GreensFnOkadaS12::Eval (UInt i, UInt j) const {
                               +(x3-y3-W)/(pow((x2-y2),2) + pow((x3-y3-W),2))
                               -(x3+y3+W)/(pow((x2-y2),2) + pow((x3+y3+W),2)) );
 
-  //printf("x2: %f, x3: %f, y2: %f, y3: %f, W: %f, s: %f\n", x2, x3, y2, y3, _dz, s12);
+  printf("x2: %f, x3: %f, y2: %f, y3: %f, W: %f, s: %f\n", x2, x3, y2, y3, _dz, s12);
 
   //if (isinf(s12)){
     //s12 = -999;
